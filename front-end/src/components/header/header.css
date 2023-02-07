@@ -1,0 +1,26 @@
+.header-conteiner{
+    height: 70px;
+    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.login-button{
+    width: 100px;
+    height: 50px;
+    border-radius: 7px;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-button:hover{
+    background-color: gray !important;
+}
+
+.logo{
+    color: white;
+    font-size: 50px;
+}
