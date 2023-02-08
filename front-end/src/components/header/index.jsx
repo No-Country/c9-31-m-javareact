@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "./header.css"
 
@@ -7,9 +6,17 @@ export default function Header(){
     function handleClick(){
         setClicked(!clicked)
     }
-    return <div className="header-conteiner">
-        <div className="logo">LOGO</div>
-        <button onClick={handleClick} className="login-button">{clicked? "login" : "mi perfil"} </button>
-    </div>
+    return <nav>
+    <div class="left">
+        <a href="/">Tesh</a>
+        </div>
+    <form class="search-form">
+      <input type="text" placeholder="Search" />
+      <button class="search-btn">Search</button>
+    </form>
+    <button class="sell-btn">Sell</button>
+    <div class="gift-icon"></div>
+  </nav>
+  
 }
 

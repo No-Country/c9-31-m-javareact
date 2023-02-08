@@ -1,26 +1,59 @@
-.header-conteiner{
-    height: 70px;
-    background-color: blue;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .left {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .search-form {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 30px;
-}
-
-.login-button{
-    width: 100px;
-    height: 50px;
-    border-radius: 7px;
-    background: white;
+  }
+  
+  .search-form input[type="text"] {
+    padding: 10px;
     border: none;
-    cursor: pointer;
-}
-
-.login-button:hover{
-    background-color: gray !important;
-}
-
-.logo{
-    color: white;
-    font-size: 50px;
-}
+    border-radius: 5px 0 0 5px;
+    margin-right: 10px;
+    flex-grow: 1;
+  }
+  
+  .search-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .sell-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .gift-icon {
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  @media (max-width: 768px) {
+    .search-form, .sell-btn, .gift-icon {
+      display: none;
+    }
+  }
+  
