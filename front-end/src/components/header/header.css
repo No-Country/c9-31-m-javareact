@@ -27,17 +27,6 @@
     background-color: gray !important;
 }
 
-.logo{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 18px;
-    text-align: right;
-    color: #000000;
-    cursor: pointer;
-}
-
 .header-gift_button{
 border: none;
 background: none;
