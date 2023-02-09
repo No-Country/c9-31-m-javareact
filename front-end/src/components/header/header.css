@@ -35,6 +35,7 @@
     line-height: 18px;
     text-align: right;
     color: #000000;
+    cursor: pointer;
 }
 
 .header-gift_button{

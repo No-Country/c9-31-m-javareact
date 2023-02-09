@@ -1,0 +1,12 @@
+.category-conteiner{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.sub_header-conteiner{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 20%;
+    margin: 20px 0;
+}
