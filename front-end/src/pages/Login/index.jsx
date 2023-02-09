@@ -1,5 +1,10 @@
 import React from "react";
+import { Login } from "../../components/login/index";
+import "./loginPage.css"
 
-export function Login(){
-    return <div> SOY LOGIN</div>
+export function LoginPage(){
+    return <div className="login-page_conteiner">
+        <div className="login-page_carousel"/>
+        <Login/>
+    </div>
 }

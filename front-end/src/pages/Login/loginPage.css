@@ -1,0 +1,12 @@
+.login-page_conteiner{
+    margin: 80px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-page_carousel{
+    width: 607px;
+    height: 749px;
+    background: #EDEDED;
+    border-radius: 16px;
+}

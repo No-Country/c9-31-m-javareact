@@ -35,3 +35,15 @@
     color: #6F6F6F;
     cursor: pointer;
 }
+
+.redes-button{
+    width: auto;
+    height: 38px;
+    border: 1px solid #ADADAD;
+    border-radius: 25px;
+    background: none;
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 20px;
+}
