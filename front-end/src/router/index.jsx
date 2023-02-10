@@ -7,6 +7,8 @@ import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
+import SignUp from "../pages/Sign-up";
+
 function AppRoutes() {
 
   // ? Las líneas de abajo te servirán para proteger ciertas rutas (como la opción de venta) de usuarios no logeados. Basta con encapsular el elemento en los tags <RequireAuth>
@@ -25,6 +27,7 @@ function AppRoutes() {
             <Route path="/" element={<Layout/>} >
                 <Route index element={<Home />} />
                 <Route path="/login" element={<LoginPage/>} />
+                <Route path="/signup" element={<SignUp />} />
             </Route>
         </Routes>
     )
