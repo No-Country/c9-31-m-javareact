@@ -8,6 +8,7 @@ import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
 import SignUp from "../pages/Sign-up";
+import Sell from "../pages/Sell/Sell";
 
 function AppRoutes() {
 
@@ -28,6 +29,7 @@ function AppRoutes() {
                 <Route index element={<Home />} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/sell" element={<Sell />} />
             </Route>
         </Routes>
     )
