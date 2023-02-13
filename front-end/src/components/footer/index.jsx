@@ -17,7 +17,7 @@ export function Footer(){
         </div>
         <div className="footer-redes_conteiner">
             <a href="http://"><FacebookIconFooter/></a>
-            <a href="http://"></a><TwitterIconFooter/>
+            <a href="http://"><TwitterIconFooter/></a>
             <a href="http://"><LinkeinIconFooter/></a>
             <a href="http://"><InstagramIconFooter/></a>
             <a href="http://"><YoutubeIconFooter/></a>
