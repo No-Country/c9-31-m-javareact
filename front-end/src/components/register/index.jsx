@@ -1,5 +1,5 @@
 import React from "react";
-
+import { userInputs } from "./userInputs";
 import { useEffect, useState } from "react";
 import {
   addDoc,
@@ -13,44 +13,12 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
-const SignUp = ({ inputs, title }) => {
+const RegisterForn = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
   const navigate = useNavigate()
 
-  const userInputs = [
-    {
-      id: "username",
-      label: "Username",
-      type: "text",
-      placeholder: "john_doe",
-    },
-    {
-      id: "displayName",
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
-    },
-    {
-      id: "email",
-      label: "Email",
-      type: "mail",
-      placeholder: "john_doe@gmail.com",
-    },
-
-    {
-      id: "password",
-      label: "Password",
-      type: "password",
-    },
-    {
-      id: "address",
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
-    },
-  ];
 
   useEffect(() => {
     const uploadFile = () => {
@@ -91,12 +59,10 @@ const SignUp = ({ inputs, title }) => {
     file && uploadFile();
   }, [file]);
 
-  console.log(data);
 
   const handleInput = (e) => {
     const id = e.target.id;
     const value = e.target.value;
-
     setData({ ...data, [id]: value });
   };
 
@@ -112,7 +78,8 @@ const SignUp = ({ inputs, title }) => {
         ...data,
         timeStamp: serverTimestamp(),
       });
-      navigate(-1)
+      navigate("/")
+      
     } catch (err) {
       console.log(err);
     }
@@ -120,9 +87,7 @@ const SignUp = ({ inputs, title }) => {
 
   return (
     <div className="new">
-      
       <div className="newContainer">
-        
         <div className="top">
           <h1>{title}</h1>
         </div>
@@ -173,4 +138,4 @@ const SignUp = ({ inputs, title }) => {
   );
 };
 
-export default SignUp;
+export default RegisterForn;

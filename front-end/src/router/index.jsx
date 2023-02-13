@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-import SignUp from "../pages/Sign-up";
+import Register from "../pages/Register";
 import Sell from "../pages/Sell/Sell";
 import ProductsView from "../pages/ProductsView/Index";
 
@@ -21,15 +21,13 @@ function AppRoutes() {
    return currentUser ? children : <Navigate to="/login" />
     };
 
-    console.log(currentUser)
-
 
     return (
         <Routes>
             <Route path="/" element={<Layout/>} >
                 <Route index element={<Home />} />
                 <Route path="/login" element={<LoginPage/>} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/sell" element={<Sell />} />
                 <Route path="/productos" element={<ProductsView />} />
             </Route>
