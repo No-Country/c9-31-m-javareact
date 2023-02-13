@@ -9,6 +9,7 @@ import { AuthContext } from "../context/AuthContext";
 
 import SignUp from "../pages/Sign-up";
 import Sell from "../pages/Sell/Sell";
+import ProductsView from "../pages/ProductsView/Index";
 
 function AppRoutes() {
 
@@ -30,6 +31,7 @@ function AppRoutes() {
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/sell" element={<Sell />} />
+                <Route path="/productos" element={<ProductsView />} />
             </Route>
         </Routes>
     )
