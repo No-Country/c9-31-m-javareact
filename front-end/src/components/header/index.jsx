@@ -10,7 +10,7 @@ export default function Header(){
         <Logo/>
         <SearchBar/>
         <div className="header-buttons">
-            <button  className="login-button">Vender</button>
+            <button className="login-button">Vender</button>
             <button className="header-gift_button"><Regalo/></button>
         </div>
     </div>

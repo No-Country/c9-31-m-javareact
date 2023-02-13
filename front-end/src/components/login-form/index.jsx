@@ -24,7 +24,10 @@ export function LoginForm(){
           // Signed in
           const user = userCredential.user;
           dispatch({type:"LOGIN", payload:user})
-          navigate("/home")
+          localStorage.setItem("user", user)
+          navigate("/")
+
+
         })
         .catch((error) => {
           setError(true);
@@ -34,12 +37,13 @@ export function LoginForm(){
 
     
 
-    return <div>
+    return <>
         <form className="login-form" onSubmit={handleSubmit}>
             <input className="login-form_input" placeholder="E-mail" type="email" onChange={e => setEmail(e.target.value)}/>
             <input className="login-form_input" placeholder="Contraseña" type="password" onChange={e => setPassword(e.target.value)}/>
             <button className="login-form_button">Ingresar</button>
             {error && <span>Mail o contraseña incorrecta</span>}
+            
         </form>
-        </div>
+        </>
 }
