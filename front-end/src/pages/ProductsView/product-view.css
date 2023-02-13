@@ -1,0 +1,47 @@
+.datatable {
+    width: 100%;
+    text-align: left;
+    font-size: 14px; 
+  }
+  
+  .datatableTitle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem
+    };
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #ddd;
+    }
+    
+    .action-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .view-button, .delete-button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    
+    .delete-button {
+      background-color: #f44336;
+    }
+    
+  
