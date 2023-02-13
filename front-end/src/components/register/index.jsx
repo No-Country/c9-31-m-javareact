@@ -1,63 +1,70 @@
 import React from "react";
 import { userInputs } from "./userInputs";
-import { useEffect, useState } from "react";
+import { 
+  //useEffect, 
+  useState } from "react";
 import {
-  addDoc,
-  collection,
+  // addDoc,
+  // collection,
   doc,
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { auth, db, storage } from "../../firebase";
+import { auth,
+    db,
+  //storage
+  } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+//import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
 const RegisterForn = ({ inputs, title }) => {
-  const [file, setFile] = useState("");
+  //const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
   const navigate = useNavigate()
 
+  // ?? a esta funcionalidad la comente porque no esta en el diseño. Prefiero que nos concentremos en respetar el diseño y...
+  // ... darle mas importancia al flujo de vender, publicar productos.
 
-  useEffect(() => {
-    const uploadFile = () => {
-      const name = new Date().getTime() + file.name;
+  // useEffect(() => {
+  //   const uploadFile = () => {
+  //     const name = new Date().getTime() + file.name;
 
-      console.log(name);
-      const storageRef = ref(storage, file.name);
-      const uploadTask = uploadBytesResumable(storageRef, file);
+  //     console.log(name);
+  //     const storageRef = ref(storage, file.name);
+  //     const uploadTask = uploadBytesResumable(storageRef, file);
 
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          const progress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log("Upload is " + progress + "% done");
-          setPerc(progress);
-          switch (snapshot.state) {
-            case "paused":
-              console.log("Upload is paused");
-              break;
-            case "running":
-              console.log("Upload is running");
-              break;
-            default:
-              break;
-          }
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            setData((prev) => ({ ...prev, img: downloadURL }));
-          });
-        }
-      );
-    };
-    file && uploadFile();
-  }, [file]);
+  //     uploadTask.on(
+  //       "state_changed",
+  //       (snapshot) => {
+  //         const progress =
+  //           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+  //         console.log("Upload is " + progress + "% done");
+  //         setPerc(progress);
+  //         switch (snapshot.state) {
+  //           case "paused":
+  //             console.log("Upload is paused");
+  //             break;
+  //           case "running":
+  //             console.log("Upload is running");
+  //             break;
+  //           default:
+  //             break;
+  //         }
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       },
+  //       () => {
+  //         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+  //           setData((prev) => ({ ...prev, img: downloadURL }));
+  //         });
+  //       }
+  //     );
+  //   };
+  //   file && uploadFile();
+  // }, [file]);
 
 
   const handleInput = (e) => {
@@ -74,6 +81,7 @@ const RegisterForn = ({ inputs, title }) => {
         data.email,
         data.password
       );
+      console.log(res, "RES");
       await setDoc(doc(db, "users", res.user.uid), {
         ...data,
         timeStamp: serverTimestamp(),
@@ -84,7 +92,7 @@ const RegisterForn = ({ inputs, title }) => {
       console.log(err);
     }
   };
-
+  
   return (
     <div className="new">
       <div className="newContainer">
@@ -93,18 +101,18 @@ const RegisterForn = ({ inputs, title }) => {
         </div>
         <div className="bottom">
           <div className="left">
-            <img
+            {/* <img
               src={
                 file
                   ? URL.createObjectURL(file)
                   : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
               }
               alt=""
-            />
+            /> */}
           </div>
           <div className="right">
             <form onSubmit={handleAdd}>
-              <div className="formInput">
+              {/* <div className="formInput">
                 <label htmlFor="file">
                   apretá aquí para subir alguna imagen imagen
                 </label>
@@ -114,7 +122,7 @@ const RegisterForn = ({ inputs, title }) => {
                   onChange={(e) => setFile(e.target.files[0])}
                   style={{ display: "none" }}
                 />
-              </div>
+              </div> */}
 
               {userInputs.map((input) => (
                 <div className="formInput" key={input.id}>

@@ -2,21 +2,24 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import {
-  addDoc,
-  collection,
+  // addDoc,
+  // collection,
   doc,
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import { auth, db, storage } from "../../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { 
+  //auth,
+   db,
+   storage } from "../../firebase";
+//import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 
 const Sell = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
-  const [per, setPerc] = useState(null);
+  const [perc, setPerc] = useState(null);
   const navigate = useNavigate()
 
   const productInputs = [

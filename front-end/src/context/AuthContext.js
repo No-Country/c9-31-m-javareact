@@ -8,7 +8,7 @@ import AuthReducer from "./AuthReducer";
 // ? Finalmente, se devuelve un proveedor de contexto de AuthContext con los valores actuales de "currentUser" y "dispatch" como propiedades, y se renderiza dentro del componente el "children". Esto permite a los componentes hijos acceder y actualizar el estado del contexto de autenticación a través del contexto.
 
 const INITIAL_STATE = {
-  currentUser: JSON.parse(localStorage.getItem("user")) || null,
+  currentUser: JSON.parse(localStorage.getItem("user")),
 };
 
 export const AuthContext = createContext(INITIAL_STATE);
@@ -17,7 +17,9 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.currentUser));
+    if (state.currentUser) {
+      localStorage.setItem("user", JSON.stringify(state.currentUser));
+    }
   }, [state.currentUser]);
 
   return (

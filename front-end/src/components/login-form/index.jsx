@@ -17,14 +17,19 @@ export function LoginForm(){
 
     const handleSubmit =(e) => {
         e.preventDefault()
-    
+        console.log("try login");
         signInWithEmailAndPassword(auth, email, password)
-
         .then((userCredential) => {
+          console.log("thennn");
+          console.log();
           // Signed in
           const user = userCredential.user;
           dispatch({type:"LOGIN", payload:user})
-          localStorage.setItem("user", user)
+          
+          // ?? aca agregue un stringify de user para que se guarde en localStorage
+          // el flujo de login funciona. por ahora lo dejo asi. habria que mejorar el manejo de datos y hacer logout y update de user
+          
+          localStorage.setItem("user", JSON.stringify(user))
           navigate("/")
 
 
