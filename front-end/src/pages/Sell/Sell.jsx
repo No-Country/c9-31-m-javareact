@@ -2,8 +2,8 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import {
-  // addDoc,
-  // collection,
+  addDoc,
+  collection,
   doc,
   serverTimestamp,
   setDoc,
@@ -22,6 +22,15 @@ const Sell = ({ inputs, title }) => {
   const [perc, setPerc] = useState(null);
   const navigate = useNavigate()
 
+  let storedUser = localStorage.getItem("user");
+  let email;
+ 
+
+  if (storedUser) {
+    const parsedUser = JSON.parse(storedUser);
+    email = parsedUser.email;
+} 
+
   const productInputs = [
     {
       id: "productName",
@@ -39,12 +48,6 @@ const Sell = ({ inputs, title }) => {
       id: "price",
       label: "Password",
       type: "number",
-    },
-    {
-      id: "sssss",
-      label: "sssss",
-      type: "text",
-      placeholder: "gggk",
     },
   ];
 
@@ -88,6 +91,7 @@ const Sell = ({ inputs, title }) => {
   }, [file]);
 
   console.log(data);
+ 
 
   const handleInput = (e) => {
     const id = e.target.id;
@@ -99,7 +103,7 @@ const Sell = ({ inputs, title }) => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      await setDoc(doc(db, "products", "products"), {
+      await addDoc(collection(db, "products"), {
         ...data,
         timeStamp: serverTimestamp(),
       });
@@ -153,6 +157,7 @@ const Sell = ({ inputs, title }) => {
                   />
                 </div>
               ))}
+              <input id="user" type="text" value={email} readOnly style={{ display: "none" }}/>
               <button type="submit">
                 Enviar
               </button>
