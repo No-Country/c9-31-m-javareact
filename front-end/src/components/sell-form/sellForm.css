@@ -1,0 +1,43 @@
+.sell-form_conteiner{
+    margin: 100px;
+}
+.sell-form_title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 26px;
+    color: #6F6F6F;
+}
+
+.sell-form_photo{
+    width: 100%;
+    height: 256px;
+    border: 4px solid #CDCDCD;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.sell-form_photo_instructions{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;  
+    color: #6F6F6F;
+}
+
+.sell-form_photo_photodescription{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}

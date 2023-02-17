@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Layout } from "../components/layout/index";
 import { Home } from "../pages/Home/index";
 import { LoginPage } from "../pages/Login/index";
+import { Item } from "../pages/Item/index";
 //import { useContext } from "react";
 //import { Navigate } from "react-router-dom";
 //import { AuthContext } from "../context/AuthContext";
@@ -30,6 +31,7 @@ function AppRoutes() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/sell" element={<Sell />} />
                 <Route path="/productos" element={<ProductsView />} />
+                <Route path="/item/:id" element={<Item/>} />
             </Route>
         </Routes>
     )

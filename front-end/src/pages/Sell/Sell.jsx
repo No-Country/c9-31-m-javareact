@@ -15,6 +15,7 @@ import {
 //import { createUserWithEmailAndPassword } from "firebase/auth";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import { SellForm } from "../../components/sell-form";
 
 const Sell = ({ inputs, title }) => {
   const [file, setFile] = useState("");
@@ -115,7 +116,7 @@ const Sell = ({ inputs, title }) => {
 
   return (
     <div className="new">
-      
+      <SellForm/>
       <div className="newContainer">
         
         <div className="top">
