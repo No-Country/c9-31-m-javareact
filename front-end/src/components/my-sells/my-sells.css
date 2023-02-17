@@ -1,0 +1,59 @@
+.my-sells{
+    font-family: Inter;
+font-size: 30px;
+font-weight: 600;
+line-height: 26px;
+letter-spacing: 0em;
+text-align: center;
+}
+
+.div-mysells{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.rectangulo {
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+  }
+  
+  .opciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .opcion {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .opcion:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .opcion.seleccionada {
+    background-color: black;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    .opciones {
+      flex-wrap: nowrap;
+    }
+  
+    .opcion {
+      margin: 10px 20px;
+    }
+  }

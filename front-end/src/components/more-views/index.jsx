@@ -46,7 +46,7 @@ const MoreViews = () => {
       <div onClick={()=>{navigate("/item/"+product.id , { replace: true })}} key={product.id} className="product-carousel-item">
         <div className="product-seller-info">
           <div className="product-seller-logo"></div>
-          <h3 className="product-user">{product.user}</h3>
+          <h3 className="product-user">{product.email}</h3>
         </div>
         <img src={product.img} alt={product.name} style={{ width: '264px', height: '280px' }} />
         <div className="product-item-info">

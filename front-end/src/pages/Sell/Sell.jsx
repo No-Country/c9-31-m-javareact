@@ -47,8 +47,13 @@ const Sell = ({ inputs, title }) => {
     },
     {
       id: "price",
-      label: "Password",
+      label: "Price",
       type: "number",
+    },
+    {
+      id: "email",
+      label: "Tu email",
+      type: "text",
     },
   ];
 
@@ -158,7 +163,7 @@ const Sell = ({ inputs, title }) => {
                   />
                 </div>
               ))}
-              <input id="user" type="text" value={email} readOnly style={{ display: "none" }}/>
+              
               <button type="submit">
                 Enviar
               </button>

@@ -1,37 +1,33 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { collection, doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
+const ProductDetail = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState({});
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const productRef = doc(db, "products", id);
+      const productDoc = await getDoc(productRef);
+      if (productDoc.exists()) {
+        setProduct(productDoc.data());
+      } else {
+        console.log("No such document!");
+      }
+    };
+    fetchProduct();
+  }, [id]);
 
-export function Item(){
-    const [item, setItem] = useState({title:"",price:0})
-    const [pictures, setPictures] = useState([])
-    
-    // ??aca en params te llega el id del producto
-    const params =  useParams()
-
-    console.log(params);
-    //  ?? con una funcion asi aca tenes q traer los datos del producto en el que se hizo click 
-    //  async function pullItem(id) {
-    //  const response = await fetch("https://api.mercadolibre.com/items/"+id)    
-    //  const prod = await response.json()
-    //  setItem(prod)
-    //  setPictures(prod.pictures)
-    // }
-
-    // useEffect(()=>{
-    //     pullItem(params.id)
-    // },[params])
-        
-
-    
-    // ?? aca hay que armar la vista para mostrar en producto 
-        return (
-            <div>
-                soy item {params.id} 
-            </div>
-            
-        ) 
-        
-    
+  return (
+    <div>
+      <h1>{product.productName}</h1>
+      <img src={product.img} alt={product.name} style={{ width: '264px', height: '280px' }} />
+      <p>{product.productdescription}</p>
+      <span>${product.price}</span>
+    </div>
+  );
 };
+
+export default ProductDetail;

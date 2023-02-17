@@ -4,6 +4,7 @@ import { LoginImg, ShoppingBag } from "../../img";
 import "./subHeader.css"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function SubHeader() {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +13,12 @@ export function SubHeader() {
     
     const navigate = useNavigate()
 
+
+    function logout(){
+        localStorage.clear();
+        isLogged = false;
+        window.location.reload();
+    }
 
     //? Trae el email guardado en el localStorage dentro del componente de login, isLogged sirve para comprobar si mostrar el mail o la opción para registrarse
     // ?? aca saque el else porq lo agregue abajo. en la parte de text
@@ -47,11 +54,15 @@ export function SubHeader() {
             {/* //aca le cambie un poco la parte de text */}
             <BottomlessButton onClick={handleClick} text={email? email:"Iniciar sesión / Registrarse"} img={<LoginImg />}></BottomlessButton>
             {isOpen && (
-                <ul style={{ position: "absolute", left: position.x, top: position.y }}>
-                    <li>Perfil</li>
-                    <li>Ventas</li>
-                    <li>Otras</li>
-                </ul>
+                <div className="submenu" style={{ position: "absolute", left: position.x, top: position.y }}><ul className="options-submenu">
+                <li className="options-submenu">Nivel 0</li>
+                <Link to="/misventas"><li className="options-submenu">Ventas</li></Link>
+                <Link to="/"><li className="options-submenu">Compras</li></Link>
+                <Link to="/"><li className="options-submenu">Configuracion</li></Link>
+                <Link to="/"><li className="options-submenu">Perfil</li></Link>
+                <li className="options-submenu" onClick={() => logout()}>Salir</li>
+            </ul></div>
+          
             )}
             <BottomlessButton text="Carrito" img={<ShoppingBag />} ></BottomlessButton>
         </div>

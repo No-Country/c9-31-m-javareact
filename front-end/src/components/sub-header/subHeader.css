@@ -10,3 +10,55 @@
     padding-left: 20%;
     margin: 20px 0;
 }
+
+.category-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottomless-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .button-text {
+    margin-right: 8px;
+  }
+  
+  .button-img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .submenu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 9;
+    position: absolute;
+    width: 149px;
+    height: 184px;
+    left: 1071px;
+    top: 155px;
+    background: #CFCECE;
+    text-align: left;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .options-submenu{
+    font-family: Inter;
+font-size: 14px;
+font-weight: 600;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: left;
+margin-bottom: 10px;
+  }
+  
