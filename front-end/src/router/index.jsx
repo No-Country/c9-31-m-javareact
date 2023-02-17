@@ -12,6 +12,7 @@ import Register from "../pages/Register";
 import Sell from "../pages/Sell/Sell";
 import ProductsView from "../pages/ProductsView/Index";
 import MySells from "../components/my-sells";
+import SearchProducts from "../pages/Search-result";
 
 function AppRoutes() {
 
@@ -34,6 +35,7 @@ function AppRoutes() {
                 <Route path="/misventas" element={<MySells />} />
                 <Route path="/productos" element={<ProductsView />} />
                 <Route path="/item/:id" element={<ProductDetail/>} />
+                <Route path="/resultados" element={<SearchProducts/>} />
             </Route>
         </Routes>
     )
