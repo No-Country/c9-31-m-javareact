@@ -1,8 +1,9 @@
 .search-conteiner{
-    border: 1px solid #ADADAD;
+    border: 1px solid #706D73;
     border-radius: 10px;
     height: 50px;
-    width: 500px;
+    width: 630px;
+    margin: auto;
     display: flex;
 }
 
@@ -10,7 +11,7 @@
     height: 50px;
     width: 50px;
     border: none;
-    border-right: 1px solid #ADADAD;
+    border-right: 1px solid #706D73;
     background: none;
     padding: 15px;
 }

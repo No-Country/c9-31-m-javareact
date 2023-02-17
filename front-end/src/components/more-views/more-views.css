@@ -1,138 +1,276 @@
+.product-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
 .product-carousel-container {
-    width: 80%;
-    padding-left: 5%;
-    padding-right: 10%;
-    overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 1150px;
+  margin: auto;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.div-titles{
+  margin-top: 21px;
+  padding: 0rem 5rem
+}
+
+
+
+.product-title{
+  width: 231px;
+  height: 29px;
+  float: left; 
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  display: flex;
+  align-items: center;
+  color: #1D1B1F;
+}
+
+.product-carousel-button {
+  margin-top: 20px;
+  width: 174px;
+  height: 22px;
+  float: right;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  color: #A556EC;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  border: 0px solid #A556EC;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.product-carousel-button:hover {
+  background-color: #A556EC;
+  color: #FFF;
+}
+
+
+.product-carousel-item {
+  flex: 0 0 284px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.product-carousel-item:last-child {
+  margin-right: 0;
+}
+
+.product-seller-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.product-seller-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  gap: 4px;
+  width: 36px;
+  height: 36px;
+  background: #C4C4C4;
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.product-item-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.product-user {
+  width: 128px;
+  height: 20px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #171520;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.product-name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #171520;
+}
+
+.product-description {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: #626262;
+}
+
+.product-item-info h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-item-info p {
+  margin-bottom: 10px;
+}
+
+.product-item-price
+{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #171520;
   }
   
-  .product-carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
+  .product-item-price span {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 6px;
+  color: #626262;
   }
   
+  .product-item-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .product-item-btn button {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+  background: #171520;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  }
+  
+  .product-item-btn button:hover {
+  background-color: #2E2E2E;
+  }
+  
+  @media (max-width: 768px) {
   .product-carousel-item {
-    display: inline-block;
-    margin-right: 20px;
-    width: 264px;
-    text-align: center;
+  flex: 0 0 200px;
+  margin-right: 10px;
   }
-  
+
+  .div-titles{
+    margin-top: 181px;
+    padding: 0rem 1rem
+  }
+
   .product-carousel-item:last-child {
-    margin-right: 0;
+  margin-right: 0;
   }
   
-  .product-seller-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .product-seller-logo {
-
-
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 4px;
-gap: 4px;
-
-width: 36px;
-height: 36px;
-
-background: #C4C4C4;
-border-radius: 20px;
-
-
-flex: none;
-order: 0;
-flex-grow: 0;
-  }
-  
-  .product-item-info {
-    margin-top: 20px;
-    text-align: left;
-  }
-
   .product-user {
-    width: 128px;
-height: 20px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 20px;
-/* identical to box height, or 125% */
-
-display: flex;
-align-items: center;
-
-color: #171520;
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+  width: 100px;
+  font-size: 14px;
+  line-height: 18px;
   }
-
-  .product-name{
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 20px;
-display: flex;
-align-items: center;
-color: #171520;
+  
+  .product-name {
+  font-size: 14px;
+  line-height: 18px;
   }
-
-  .product-description{
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 20px;
-
-
-display: flex;
-align-items: center;
-
-
-
-color: #626262;
+  
+  .product-description {
+  font-size: 12px;
+  line-height: 16px;
   }
   
   .product-item-info h4 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .product-item-info p {
-    margin-bottom: 10px;
+  font-size: 16px;
   }
   
   .product-item-price {
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 18px;
-line-height: 20px;
-/* identical to box height, or 111% */
-
-display: flex;
-align-items: center;
-
-/* Type/High-Emphasis */
-
-color: #171520;
+  font-size: 16px;
+  line-height: 20px;
   }
   
+  .product-item-price span {
+  font-size: 12px;
+  }
   
+  .product-item-btn button {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 12px 24px;
+  }
+  }
+
+  .container {
+  position: relative;
+  height: 200px;
+  background-color: #eee;
+  border-radius: 50%;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+}
+
+.left {
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #000 transparent transparent;
+  left: -20px;
+}
+
+.right {
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #000;
+  right: -20px;
+}

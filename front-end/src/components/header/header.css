@@ -8,11 +8,16 @@
     border-bottom: 1px solid #EDEDED;
 }
 
+.logo{
+ width: 185px;
+ text-align: left;
+}
+
 .login-button{
     width: 100px;
     height: 50px;
-    background: #000000;
-    border-radius: 10px;
+    
+    
     border: none;
     cursor: pointer;
     color: white;
@@ -21,6 +26,10 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
+    background: #A556EC;
+box-shadow: 4px 4px 0px #1D1B1F;
+border-radius: 10px;
+
 }
 
 .login-button:hover{

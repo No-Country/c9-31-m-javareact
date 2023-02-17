@@ -1,23 +1,19 @@
 const img = [
     {
-      src: "https://fastly.picsum.photos/id/40/4106/2806.jpg?hmac=MY3ra98ut044LaWPEKwZowgydHZ_rZZUuOHrc3mL5mI",
-      title: "Gato",
+      src: "https://cdn.create.vista.com/api/media/medium/177041398/stock-photo-excited-young-shopper-looking-clothes?token=",
+      title: "",
     },
     {
-      src: "https://fastly.picsum.photos/id/40/4106/2806.jpg?hmac=MY3ra98ut044LaWPEKwZowgydHZ_rZZUuOHrc3mL5mI",
-      title: "Green Bamboo",
+      src: "https://cdn.create.vista.com/api/media/medium/231144952/stock-photo-woman-buying-clothes-fashion-store?token=",
+      title: "",
     },
     {
-      src: "https://fastly.picsum.photos/id/40/4106/2806.jpg?hmac=MY3ra98ut044LaWPEKwZowgydHZ_rZZUuOHrc3mL5mI",
-      title: "sí",
+      src: "https://cdn.create.vista.com/api/media/medium/221720992/stock-photo-happy-young-couple-smiling-each?token=",
+      title: "",
     },
     {
-      src: "https://fastly.picsum.photos/id/40/4106/2806.jpg?hmac=MY3ra98ut044LaWPEKwZowgydHZ_rZZUuOHrc3mL5mI",
-      title: "aaaaa",
-    },
-    {
-      src: "https://fastly.picsum.photos/id/40/4106/2806.jpg?hmac=MY3ra98ut044LaWPEKwZowgydHZ_rZZUuOHrc3mL5mI",
-      title: "aaaa",
+      src: "https://img.freepik.com/foto-gratis/mujer-atractiva-emocional-que-sostiene-ropa-percha-tienda-ropa_285396-4597.jpg?w=740&t=st=1676641621~exp=1676642221~hmac=9df7eaa337171e79c6c1b011e91aa0d0ac4b292cacf35d09c229fdd9cfac9103",
+      title: "",
     },
   ];
   

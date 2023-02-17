@@ -8,7 +8,7 @@
     width: 92.7px;
     height: 33px;
     background: #FFFFFF;
-    border: 1px solid #ADADAD;
+    border: 1px solid #706D73;
     border-radius: 18px;
     font-family: 'Inter';
     font-style: normal;
@@ -16,7 +16,7 @@
     font-size: 14px;
     line-height: 18px;
     text-align: right;
-    color: #ADADAD;
+    color: #706D73;
     width: auto;
     margin: 0 10px;
     cursor: pointer;
@@ -39,7 +39,7 @@
 .redes-button{
     width: auto;
     height: 38px;
-    border: 1px solid #ADADAD;
+    border: 1px solid #706D73;
     border-radius: 25px;
     background: none;
     display: flex;
