@@ -1,6 +1,11 @@
 .sell-form_conteiner{
     margin: 80px;
 }
+
+.sell-form_titleandphoto{
+    max-width: 1250px;
+    margin: 0 auto;
+}
 .sell-form_title{
     font-family: 'Inter';
     font-style: normal;
@@ -53,10 +58,12 @@
     border-radius: 10px;
 }
 .sell-form_kind__container{
-    margin: 20px auto;
+    margin:20px auto;
     display: grid;
     grid: auto-flow / 1fr 1fr;
     justify-items: center;
+    max-width: 1250px;
+    justify-content: center;
 }
 .sell-form_kind{
     background: #F1F4FE;
@@ -140,4 +147,22 @@
     border-radius: 50px;
     width: 65px;
     height: 65px;
+}
+
+.largo-completo{
+    width: 100%;
+    max-width: 1250px;
+    margin: 20px auto;
+}
+
+.precio{
+    width: 200px;
+    height: 50px;
+}
+
+.sell-form_price-container{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: 30px 0;
 }

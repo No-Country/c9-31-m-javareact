@@ -15,3 +15,7 @@ export function BottomlessButton(props){
 export function RedesButton(props){
     return <button className="redes-button">{props.img? props.img:""}{props.text}</button>
 }
+
+export function ConfirmButton(props){
+    return <button onClick={props.onClick} className="confirm-button" type={props.type} >{props.text}</button>
+}

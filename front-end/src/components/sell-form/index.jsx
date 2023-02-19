@@ -6,6 +6,8 @@ import { Previews } from "../preview";
 import { useRecoilValue } from "recoil";
 import { picturesURLState } from "../../hooks";
 import { InputButton, SelectBasic } from "../../ui/inputs";
+import { ConfirmButton } from "../../ui/buttons";
+import { useNavigate } from "react-router-dom";
 
 
 export function SellForm(){
@@ -14,22 +16,48 @@ export function SellForm(){
     const [genero, setGenero] = useState("")
     const [estado, setEstado] = useState("")
     const [talle, setTalle] = useState("")
-
+    const [precioFinal,setPrecioFinal] = useState("")
+    const [product, setProduct] = useState({})
+    const navigate = useNavigate()
+//? este formulario arma un objeto "product" que tiene toda la data del producto a vender.
+// incluyendo un array con las url de las fotos.
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log("submit", 
-        e.target.genero.value,
-        e.target.prenda.value,
-        e.target.marca.value
-        );
+        const productToSell = {
+            genero:e.target.genero.value,
+            prenda:e.target.prenda.value,
+            marca:e.target.marca.value,
+            color:e.target.color.value,
+            estilo:e.target.estilo.value,
+            material:e.target.material.value,
+            talle:e.target.talle.value,
+            estado:e.target.estado.value,
+            titulo:e.target.titulo.value,
+            descripcion:e.target.descripcion.value,
+            precioDeVenta:e.target.precio.value,
+            ganancia:e.target.ganancia.value,
+            fotos:imgs
+        }
+        setProduct(productToSell)
+        window.alert("prenda publicada")
+        navigate("/", { replace: true })
+        
     }
- 
+    //aca se muestra en consola el objeto que se arma con el producto
+    console.log(product);
+
     function handleClick(){
         setShowDropzpne(true)
         if(imgs.length === 6){
         window.alert("Podés subir máximo 6 fotos")
     }
+    }
+
+    function handleChange(e){
+        const value = e.target.value;
+        const newValue = value - (value/100)*10;
+        setPrecioFinal("$"+ newValue)
     }
 
     return <div className="sell-form_conteiner">
@@ -57,59 +85,80 @@ export function SellForm(){
                 Más Consejos</a> </p>
             </div>
             <div className="sell-form_kind__container">
-            <div className="sell-form_kind">
-            <label className="sell-form_label">Genero:
-                <div className="sell-form_kind__butons-conteiner" >
-                    <InputButton className="sell-options-button" onClick={()=>{setGenero("Femenino")}} type="button" value="Femenino"/>
-                    <InputButton className="sell-options-button" onClick={()=>{setGenero("Masculino")}} type="button" value="Masculino"/>
-                    <InputButton className="sell-options-button" onClick={()=>{setGenero("Niños")}} type="button" value="Niños"/>
-                    <input type="text" style={{display:"none"}} name="genero" value={genero}/>
+                <div className="sell-form_kind">
+                    <label className="sell-form_label">Genero:
+                        <div className="sell-form_kind__butons-conteiner" >
+                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Femenino")}} type="button" value="Femenino"/>
+                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Masculino")}} type="button" value="Masculino"/>
+                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Niños")}} type="button" value="Niños"/>
+                            <input readOnly type="text" style={{display:"none"}} name="genero" value={genero}/>
+                        </div>
+                    </label>
+                    <label className="sell-form_label">Prenda:
+                        <SelectBasic className="sell-form_input__select" name="prenda" value={["Remera", "Pantalon", "Campera","Zapatos","Otro"]}/>
+                    </label>
+                    <label className="sell-form_label">Marca:
+                        <SelectBasic className="sell-form_input__select" name="marca" value={["Adidas", "Nike", "Zara","Topper","Otra"]}/>
+                    </label>
+                </div>
+                <div className="sell-form_kind">
+                    <label className="sell-form_label">Estado:
+                        <div className="sell-form_kind__butons-conteiner grid" >
+                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Con etiqueta")}} type="button" value="Nuevo con etiqueta"/>
+                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Sin etiqueta")}} type="button" value="Nuevo sin etiqueta"/>
+                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Pocas veces")}} type="button" value="Usado pocas veces"/>
+                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Muchas veces")}} type="button" value="Usado muchas veces"/>
+                            <input readOnly type="text" style={{display:"none"}} name="estado" value={estado}/>
+                        </div>
+                    </label>
+                </div>
+                <div className="sell-form_kind">
+                    <label className="sell-form_label">Color:
+                        <SelectBasic className="sell-form_input__select" name="color" value={["blanco","negro","gris","rojo","verde","azul","amarillo", "Otro"]}/>
+                    </label>
+                    <label className="sell-form_label">Estilo:
+                        <SelectBasic className="sell-form_input__select" name="estilo" value={["deportivo","casual", "formal","Otra"]}/>
+                    </label>
+                    <label className="sell-form_label">Material:
+                        <SelectBasic className="sell-form_input__select" name="material" value={["Algodón","Poliéster","Lino","Lana","Nylon","Lycra","Otra"]}/>
+                    </label>
+                </div>
+                <div className="sell-form_kind">
+                    <label className="sell-form_label">Talle:
+                        <div className="sell-form_kind__butons-conteiner grid" >
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xs")}} type="button" value="XS"/>
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("s")}} type="button" value="S"/>
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("m")}} type="button" value="M"/>
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("l")}} type="button" value="L"/>
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xl")}} type="button" value="XL"/>
+                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xxl")}} type="button" value="XXL"/>
+                            <input readOnly type="text" style={{display:"none"}} name="talle" value={talle}/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div className="sell-form_kind largo-completo">
+                <label className="sell-form_label">Título de la publicación:
+                    <input className="sell-form_input__select" type="text" name="titulo" placeholder="Agregá la prenda, la marca, el color y el estilo para mejorar la búsqueda"/>
+                </label> 
+                <label style={{marginTop:"30px"}} className="sell-form_label">Descripción del producto:
+                    <textarea style={{height:"130px"}} className="sell-form_input__select" type="text" name="descripcion" placeholder="Podes agregar lo que quieras, el talle real de la etiqueta, formas de uso de la prenda, etc. Recuerda describir si tu prenda tiene algún desperfecto."/>
+                    <p style={{fontSize:"14px", margin:"0"}}>No incluyas datos de contacto o tu publicación será rechazada.</p>
+                </label> 
+            </div>
+            <div className="sell-form_kind largo-completo" style={{height:"200px"}}>
+            <label className="sell-form_label">Precio:
+                <div className="sell-form_price-container">
+                    <label style={{fontSize:"16px"}} className="sell-form_label">Precio de venta
+                        <input onChange={handleChange} name="precio" className="sell-form_input__select precio" type="text" placeholder="$  0"/>
+                    </label>
+                    <label style={{fontSize:"16px"}} className="sell-form_label">Para vos
+                        <input className="sell-form_input__select precio" name="ganancia" type="text" placeholder="$  0" value={precioFinal} readOnly/>
+                    </label>
                 </div>
             </label>
-            <label className="sell-form_label">Prenda:
-                <SelectBasic className="sell-form_input__select" name="prenda" value={["Remera", "Pantalon", "Campera","Zapatos","Otro"]}/>
-            </label>
-            <label className="sell-form_label">Marca:
-                <SelectBasic className="sell-form_input__select" name="marca" value={["Adidas", "Nike", "Zara","Topper","Otra"]}/>
-            </label>
             </div>
-            <div className="sell-form_kind">
-            <label className="sell-form_label">Estado:
-                <div className="sell-form_kind__butons-conteiner grid" >
-                    <InputButton className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Con etiqueta")}} type="button" value="Nuevo con etiqueta"/>
-                    <InputButton className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Sin etiqueta")}} type="button" value="Nuevo sin etiqueta"/>
-                    <InputButton className="sell-options-button grande" onClick={()=>{setEstado("Usado Pocas veces")}} type="button" value="Usado pocas veces"/>
-                    <InputButton className="sell-options-button grande" onClick={()=>{setEstado("Usado Muchas veces")}} type="button" value="Usado muchas veces"/>
-                    <input type="text" style={{display:"none"}} name="estado" value={estado}/>
-                </div>
-            </label>
-            </div>
-            <div className="sell-form_kind">
-            <label className="sell-form_label">Color:
-                <SelectBasic className="sell-form_input__select" name="color" value={["blanco","negro","gris","rojo","verde","azul","amarillo", "Otro"]}/>
-            </label>
-            <label className="sell-form_label">Estilo:
-                <SelectBasic className="sell-form_input__select" name="marca" value={["deportivo","casual", "formal","Otra"]}/>
-            </label>
-            <label className="sell-form_label">Material:
-                <SelectBasic className="sell-form_input__select" name="marca" value={["Algodón","Poliéster","Lino","Lana","Nylon","Lycra","Otra"]}/>
-            </label>
-            </div>
-            <div className="sell-form_kind">
-            <label className="sell-form_label">Talle:
-                <div className="sell-form_kind__butons-conteiner grid" >
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xs")}} type="button" value="XS"/>
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("s")}} type="button" value="S"/>
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("m")}} type="button" value="M"/>
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("l")}} type="button" value="L"/>
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xl")}} type="button" value="XL"/>
-                    <InputButton className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xxl")}} type="button" value="XXL"/>
-                    <input type="text" style={{display:"none"}} name="talle" value={talle}/>
-                </div>
-            </label>
-            </div>
-            </div>
-            <button>ok</button>
+            <ConfirmButton text="Vender" type="submit"/>
         </form>
     </div>
 }

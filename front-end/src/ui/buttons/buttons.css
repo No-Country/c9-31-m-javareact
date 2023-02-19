@@ -47,3 +47,21 @@
     margin: 20px;
     padding: 20px;
 }
+
+.confirm-button{
+    width: 184px;
+    height: 56px;
+    left: 628px;
+    top: 2261px;
+    background: #FFFFFF;
+    border: 1px solid #3666F0;
+    box-shadow: 3px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.3px;
+    color: #3666F0;
+}

@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 export function SelectBasic(props) {
   return (
         <Form.Select className={props.className} name={props.name} aria-label="Default select example">
-            {props.value.map((v)=>{return<option name={v} value={v}>{v}</option>})}
+            {props.value.map((v)=>{return<option name={v} key={v} value={v}>{v}</option>})}
         </Form.Select>
   
   );
