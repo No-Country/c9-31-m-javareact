@@ -25,7 +25,7 @@ export function SubHeader() {
     let isLogged = false;
     let email;
     if (storedUser) {
-        console.log(storedUser, "USER");
+       // console.log(storedUser, "USER");
         const parsedUser = JSON.parse(storedUser);
         email = parsedUser.email;
         isLogged = true;
