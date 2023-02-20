@@ -31,6 +31,10 @@ export function SubHeader() {
         isLogged = true;
     } 
 
+    function handleshop(){
+        console.log("hi")
+    }
+
 
     // ? Analiza si estamos logeados o no, en caso de que sí se despliega un menú a través de los useStates empleados y en caso de que no lleva a una página para iniciar sesión
     function handleClick(event) {
@@ -51,7 +55,6 @@ export function SubHeader() {
         </div>
 
         <div className="category-conteiner">
-            {/* //aca le cambie un poco la parte de text */}
             <BottomlessButton onClick={handleClick} text={email? email:"Iniciar sesión / Registrarse"} img={<LoginImg />}></BottomlessButton>
             {isOpen && (
                 <div className="submenu" style={{ position: "absolute", left: position.x, top: position.y }}><ul className="options-submenu">
@@ -64,7 +67,7 @@ export function SubHeader() {
             </ul></div>
           
             )}
-            <BottomlessButton text="Carrito" img={<ShoppingBag />} ></BottomlessButton>
+            <BottomlessButton text="Carrito" img={<ShoppingBag />} onClick={handleshop}></BottomlessButton>
         </div>
     </div>
 }

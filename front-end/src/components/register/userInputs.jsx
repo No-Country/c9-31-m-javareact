@@ -3,30 +3,25 @@ export const userInputs = [
       id: "username",
       label: "Username",
       type: "text",
-      placeholder: "john_doe",
-    },
-    {
-      id: "displayName",
-      label: "Name and surname",
-      type: "text",
-      placeholder: "John Doe",
+      placeholder: "Nombre y apellido:",
     },
     {
       id: "email",
       label: "Email",
       type: "mail",
-      placeholder: "john_doe@gmail.com",
+      placeholder: "Email:",
     },
 
     {
       id: "password",
       label: "Password",
       type: "password",
+      placeholder: "Contraseña:",
     },
     {
-      id: "address",
-      label: "Address",
-      type: "text",
-      placeholder: "Elton St. 216 NewYork",
+      id: "password",
+      label: "Password",
+      type: "password",
+      placeholder: "Repetir contraseña:",
     },
   ];

@@ -17,6 +17,7 @@ import { auth,
 import { createUserWithEmailAndPassword } from "firebase/auth";
 //import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import "./register.css"
 
 const RegisterForn = ({ inputs, title }) => {
   //const [file, setFile] = useState("");
@@ -93,25 +94,14 @@ const RegisterForn = ({ inputs, title }) => {
     }
   };
   
-  return (
-    <div className="new">
-      <div className="newContainer">
-        <div className="top">
-          <h1>{title}</h1>
-        </div>
-        <div className="bottom">
-          <div className="left">
-            {/* <img
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"
-              }
-              alt=""
-            /> */}
-          </div>
-          <div className="right">
-            <form onSubmit={handleAdd}>
+  return ( <>
+  <div className="register-wrapper">
+  <div className="register-photo"><img src="" alt="" /><p>aa</p></div>
+    <div className="register-container">
+    <div className="inputs-container">
+        <h1 className="register-title">Ingresá tus datos para registrarse</h1>
+        
+        <form onSubmit={handleAdd} className="inputs-display">
               {/* <div className="formInput">
                 <label htmlFor="file">
                   apretá aquí para subir alguna imagen imagen
@@ -125,24 +115,38 @@ const RegisterForn = ({ inputs, title }) => {
               </div> */}
 
               {userInputs.map((input) => (
-                <div className="formInput" key={input.id}>
-                  <label>{input.label}</label>
-                  <input
-                    id={input.id}
-                    type={input.type}
-                    placeholder={input.placeholder}
-                    onChange={handleInput}
-                  />
-                </div>
+                <div className="register-inputs" key={input.id}>
+                <input
+                  id={input.id}
+                  type={input.type}
+                  placeholder={input.placeholder}
+                  onChange={handleInput}
+                />
+              </div>
+              
               ))}
-              <button disabled={per !== null && per < 100} type="submit">
-                Send
-              </button>
+  
+  <input type="checkbox" id="accept-terms" />
+  <label for="accept-terms">Acepto los términos y condiciones</label>
+  <i class="checkmark"></i>
+
+
+
+  <div className="button-wrapper">
+  <button disabled={per !== null && per < 100} type="submit" className="register-botton">
+    Registrarme
+  </button>
+</div>
+
+<p className="login-register">¿Ya tenés cuenta?</p>
+<p className="login-register">Inicia de sesión</p>
+
             </form>
-          </div>
-        </div>
-      </div>
-    </div>
+
+            </div>
+</div>
+</div>
+</>
   );
 };
 
