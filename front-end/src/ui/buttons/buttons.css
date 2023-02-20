@@ -8,7 +8,7 @@
     width: 92.7px;
     height: 33px;
     background: #FFFFFF;
-    border: 1px solid #706D73;
+    border: 1px solid #3666F0;
     border-radius: 18px;
     font-family: 'Inter';
     font-style: normal;
@@ -46,6 +46,7 @@
     align-items: center;
     margin: 20px;
     padding: 20px;
+    cursor: pointer;
 }
 
 .confirm-button{
@@ -64,4 +65,5 @@
     line-height: 22px;
     letter-spacing: 0.3px;
     color: #3666F0;
+    cursor: pointer;
 }

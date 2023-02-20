@@ -15,10 +15,10 @@ export function InputButton(props){
   const [select, setSelect] = useState(false)
   const styleSelect = {
     borderRadius: props.radius || "10px",
-    boxShadow: "0px 3px 24px 11px rgba(0,0,0,1)"
+    boxShadow: "0px 3px 24px 11px rgba(0,0,0,1)",
   }
   const styleNoSelect = {
-    border: "none"
+    border: "none",
   }
 
 const style = select? styleSelect : styleNoSelect

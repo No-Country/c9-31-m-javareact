@@ -5,15 +5,7 @@ import "../components/sell-form/sellForm.css"
 import { LoadPhoto } from "../img/index";
 import { picturesURLState } from '../hooks';
 
-const thumbsContainer = {
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  marginTop: 16
-};
-
 const thumb = {
-  borderRadius: 2,
   marginBottom: 8,
   marginRight: 8,
   width: "100%",
@@ -66,10 +58,11 @@ export function Previews() {
         <img
           src={file.preview}
           style={img}
+          alt=""
           // Revoke data uri after image is loaded
           onLoad={() => { URL.revokeObjectURL(file.preview) }}
         />
-      </div>
+      </div>    
     </div>
   ));
   useEffect(() => {
