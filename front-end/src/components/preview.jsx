@@ -52,6 +52,8 @@ export function Previews() {
     }
 });
 
+console.log(savePicture);
+
   const thumbs = files.map(file => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>

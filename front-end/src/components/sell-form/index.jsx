@@ -3,7 +3,7 @@ import React from "react";
 import "./sellForm.css"
 import { LoadPhoto } from "../../img";
 import { Previews } from "../preview";
-import { useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { addProduct, picturesURLState } from "../../hooks";
 import { InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 export function SellForm(){
     const [showDropzpne,  setShowDropzpne] = useState(false)
-    const imgs = useRecoilValue(picturesURLState)
+    const [imgs, setImgs] = useRecoilState(picturesURLState)
     const [genero, setGenero] = useState("")
     const [estado, setEstado] = useState("")
     const [talle, setTalle] = useState("")
@@ -41,7 +41,9 @@ export function SellForm(){
             fotos:imgs
         }
         addProduct(productToSell)
+
         window.alert("prenda publicada")
+        setImgs([])
         navigate("/", { replace: true })
         
     }
