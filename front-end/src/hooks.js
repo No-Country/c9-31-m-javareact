@@ -1,13 +1,15 @@
 import { atom, useRecoilState } from "recoil";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   addDoc,
   serverTimestamp,
   collection,
   onSnapshot,
+  doc,
+  getDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export const picturesURLState = atom({
   key: "picturesState",
@@ -55,4 +57,27 @@ export async function addProduct(data) {
   } catch (err) {
     console.log(err);
   }
+}
+
+export const productState = atom({
+  key: "product",
+  default: {},
+});
+
+export async function getProductById(id) {
+  const [product, setProduct] = useRecoilState(productState);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const productRef = doc(db, "products", id);
+      const productDoc = await getDoc(productRef);
+      if (productDoc.exists()) {
+        setProduct(productDoc.data());
+      } else {
+        console.log("No such document!");
+      }
+    };
+    fetchProduct();
+  }, [id]);
+  console.log(product);
+  return product;
 }
