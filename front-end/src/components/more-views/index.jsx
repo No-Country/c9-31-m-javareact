@@ -1,67 +1,33 @@
 import React from "react";
 import "./more-views.css";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import {
-  collection,
-  onSnapshot,
-} from "firebase/firestore";
-import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import { ProductCard } from "../product-card";
+import { useMoreViews } from "../../hooks";
 
 const MoreViews = () => {
-  const [data, setData] = useState([]);
-
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const unsub = onSnapshot(
-      collection(db, "products"),
-      (snapShot) => {
-        let list = [];
-        snapShot.docs.forEach((doc) => {
-          list.push({ id: doc.id, ...doc.data() });
-        });
-        setData(list);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-
-    return () => {
-      unsub();
-    };
-  }, []);
-
-  console.log(data)
-
+  const data = useMoreViews()
+  
   return (
     <>
-    <ProductCard/>
-    <div className="div-titles"><h1 className="product-title">Más vistos</h1>
-<button className="product-carousel-button">Ver todo</button></div>
-<div className="product-carousel-wrapper">
-  <div className="product-carousel-container">
-    {data.map((product) => (
-      <div onClick={()=>{navigate("/item/"+product.id , { replace: true })}} key={product.id} className="product-carousel-item">
-        <div className="product-seller-info">
-          <div className="product-seller-logo"></div>
-          <h3 className="product-user">{product.email}</h3>
-        </div>
-        <img src={product.img} alt={product.name} style={{ width: '264px', height: '280px' }} />
-        <div className="product-item-info">
-          <h4 className="product-name">{product.productName}</h4>
-          <p className="product-description">{product.productdescription}</p>
-          <span className="product-item-price">${product.price}</span>
- 
-        </div>
+  <h1 className="products-title">Más vistos</h1>
+  <div className="product-carousel-wrapper">
+    <div className="product-carousel-container">
+      <div>
+        {data.map((p)=>{
+          return  <ProductCard
+          onClick={()=>{navigate("/item/"+p.id , { replace: true })}}
+          key={p.id}
+          sellerName={p.email} 
+          productFoto={p.img} 
+          productName={p.productName} 
+          descripcion={p.productdescription} 
+          precio ={p.price} />
+        
+        })}
       </div>
-    ))}
+    </div>
   </div>
-  
-</div>
 </>
   );
 };
