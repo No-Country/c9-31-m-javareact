@@ -13,7 +13,7 @@ const moreViewsState = atom({
   default: [],
 });
 
-export function useMoreViews() {
+export function useProducts() {
   const [data, setData] = useRecoilState(moreViewsState);
   useEffect(() => {
     const unsub = onSnapshot(

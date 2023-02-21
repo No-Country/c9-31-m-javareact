@@ -19,7 +19,6 @@ return (
             <h3 className='card-title'>${(props.precio) ||"Precio"}</h3>
             </Card.Body>   
         </div>
-        
     </Card>
 );
 }
