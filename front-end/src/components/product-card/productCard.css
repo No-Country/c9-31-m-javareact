@@ -1,10 +1,11 @@
 .card-container{
     width: 292px;
-    height: 443px;
+    height: 90%;
     background: rgba(54, 102, 240, 0.07);
     box-shadow: 3px 4px 4px rgb(237 237 237 / 60%);
     border-radius: 16px;
     padding: 10px;
+    margin: 10px;
 }
 
 .seller-info{

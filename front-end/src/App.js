@@ -2,13 +2,8 @@ import React from "react";
 import "./App.css";
 import { AppRoutes } from "../src/router/index";
 import { BrowserRouter } from "react-router-dom";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { RecoilRoot } from "recoil";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (

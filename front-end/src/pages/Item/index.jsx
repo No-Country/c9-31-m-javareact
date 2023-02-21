@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
+import { ItemCarousel } from "../../components/item-carousel";
 import { getProductById,productState } from "../../hooks";
 
 const ProductDetail = () => {
@@ -25,7 +26,7 @@ const ProductDetail = () => {
   return (
     <div>
       <h1>{titulo}</h1>
-      <img src= {fotos} style={{ width: '264px', height: '280px' }} />
+      <ItemCarousel fotos={fotos}/>
       <p>{description}</p>
       <span>${precioDeVenta}</span>
     </div>

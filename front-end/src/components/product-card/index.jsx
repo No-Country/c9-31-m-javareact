@@ -13,7 +13,7 @@ return (
         </div>
         <div style={{margin: "0 15px"}}>
             <Card.Img className='card-img' variant="top" src={props.productFoto || img} />
-            <Card.Body>
+            <Card.Body style={{height:"170px"}}>
             <Card.Title className='card-title'>{props.productName || "Titulo del producto" }</Card.Title>
             <Card.Text className='card-description'>{props.descripcion || "desctipcion breve del producto"} </Card.Text>
             <h3 className='card-title'>${(props.precio) ||"Precio"}</h3>

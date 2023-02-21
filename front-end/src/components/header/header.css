@@ -1,6 +1,5 @@
 .header-conteiner{
-    background-color: #fff;
-    height: 70px;
+    height: 120px;
     background: rgba(54, 102, 240, 0.6);
     display: flex;
     justify-content: space-between;
