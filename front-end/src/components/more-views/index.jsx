@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { ProductCard } from "../product-card";
 
 const MoreViews = () => {
   const [data, setData] = useState([]);
@@ -38,6 +39,7 @@ const MoreViews = () => {
 
   return (
     <>
+    <ProductCard/>
     <div className="div-titles"><h1 className="product-title">Más vistos</h1>
 <button className="product-carousel-button">Ver todo</button></div>
 <div className="product-carousel-wrapper">

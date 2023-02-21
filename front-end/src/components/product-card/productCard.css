@@ -1,0 +1,57 @@
+.card-container{
+    width: 292px;
+    height: 443px;
+    background: rgba(54, 102, 240, 0.07);
+    box-shadow: 3px 4px 4px rgb(237 237 237 / 60%);
+    border-radius: 16px;
+    padding: 10px;
+}
+
+.seller-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seller-info_pic{
+    width: 36px;
+    height: 36px;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.seller-info_name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #000035;
+}
+
+.card-img{
+    width: 260px;
+    height: 280px;
+}
+
+.card-title{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #171520;
+    text-align: left;
+}
+
+.card-description{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #626262;
+}
