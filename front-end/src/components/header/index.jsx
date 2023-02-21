@@ -12,7 +12,7 @@ export default function Header() {
         <SearchBar />
         <div className="header-buttons">
             <Link to="/sell">
-                <button className="login-button">Vender</button>
+                <button className="login-button">VENDER</button>
             </Link>
             <button className="header-gift_button"><Regalo /></button>
         </div>
