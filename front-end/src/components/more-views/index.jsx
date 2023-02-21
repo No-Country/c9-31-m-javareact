@@ -22,10 +22,10 @@ const MoreViews = (props) => {
             onClick={()=>{navigate("/item/"+p.id , { replace: true })}}
             key={p.id}
             sellerName={p.email} 
-            productFoto={p.img || p.fotos} 
-            productName={p.productName || p.titulo} 
-            descripcion={p.productdescription || p.descripcion} 
-            precio ={p.price || p.precioDeVenta} />
+            productFoto={p.fotos[0]} 
+            productName={ p.titulo} 
+            descripcion={ p.descripcion} 
+            precio ={p.precioDeVenta} />
           })}
         </div>
       </div>
