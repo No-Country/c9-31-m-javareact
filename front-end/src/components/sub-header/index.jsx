@@ -57,14 +57,16 @@ export function SubHeader() {
         <div className="category-conteiner">
             <BottomlessButton onClick={handleClick} text={email? email:"Iniciar sesión / Registrarse"} img={<LoginImg />}></BottomlessButton>
             {isOpen && (
-                <div className="submenu" style={{ position: "absolute", left: position.x, top: position.y }}><ul className="options-submenu">
-                <li className="options-submenu">Nivel 0</li>
-                <Link to="/misventas"><li className="options-submenu">Ventas</li></Link>
-                <Link to="/"><li className="options-submenu">Compras</li></Link>
-                <Link to="/"><li className="options-submenu">Configuracion</li></Link>
-                <Link to="/"><li className="options-submenu">Perfil</li></Link>
-                <li className="options-submenu" onClick={() => logout()}>Salir</li>
-            </ul></div>
+                <div className="submenu">
+                    <ul className="options-submenu-container">
+                        <li className="options-submenu">Nivel 0</li>
+                        <li className="options-submenu" onClick={()=>{navigate("/misventas", { replace: true })}}>Ventas</li>
+                        <li className="options-submenu">Compras</li>
+                        <li className="options-submenu">Configuracion</li>
+                        <li className="options-submenu">Perfil</li>
+                        <li className="options-submenu" onClick={() => logout()}>Salir</li>
+                    </ul>
+                </div>
           
             )}
             <BottomlessButton text="Carrito" img={<ShoppingBag />} onClick={handleshop}></BottomlessButton>
