@@ -4,7 +4,7 @@ import "./sellForm.css"
 import { LoadPhoto } from "../../img";
 import { Previews } from "../preview";
 import { useRecoilValue } from "recoil";
-import { picturesURLState } from "../../hooks";
+import { addProduct, picturesURLState } from "../../hooks";
 import { InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
 import { useNavigate } from "react-router-dom";
@@ -17,10 +17,11 @@ export function SellForm(){
     const [estado, setEstado] = useState("")
     const [talle, setTalle] = useState("")
     const [precioFinal,setPrecioFinal] = useState("")
-    const [product, setProduct] = useState({})
     const navigate = useNavigate()
+
 //? este formulario arma un objeto "product" que tiene toda la data del producto a vender.
 // incluyendo un array con las url de las fotos.
+
 
     function handleSubmit(e){
         e.preventDefault()
@@ -39,13 +40,11 @@ export function SellForm(){
             ganancia:e.target.ganancia.value,
             fotos:imgs
         }
-        setProduct(productToSell)
+        addProduct(productToSell)
         window.alert("prenda publicada")
         navigate("/", { replace: true })
         
     }
-    //aca se muestra en consola el objeto que se arma con el producto
-    console.log(product);
 
     function handleClick(){
         setShowDropzpne(true)

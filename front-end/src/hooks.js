@@ -1,7 +1,13 @@
 import { atom, useRecoilState } from "recoil";
 import { useEffect } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  serverTimestamp,
+  collection,
+  onSnapshot,
+} from "firebase/firestore";
 import { db } from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 export const picturesURLState = atom({
   key: "picturesState",
@@ -21,6 +27,7 @@ export function useProducts() {
       (snapShot) => {
         let list = [];
         snapShot.docs.forEach((doc) => {
+          console.log(doc.data(), "dataa");
           list.push({ id: doc.id, ...doc.data() });
         });
         setData(list);
@@ -36,4 +43,16 @@ export function useProducts() {
   }, []);
 
   return data;
+}
+
+export async function addProduct(data) {
+  try {
+    await addDoc(collection(db, "products"), {
+      ...data,
+      timeStamp: serverTimestamp(),
+    });
+    //navigate(-1);
+  } catch (err) {
+    console.log(err);
+  }
 }
