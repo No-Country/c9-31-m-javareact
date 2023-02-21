@@ -8,6 +8,7 @@
   flex-wrap: nowrap;
   width: 1150px;
   margin: auto;
+  margin-left: 1rem;
   transition: transform 0.5s ease;
   overflow: hidden;
 }
@@ -77,32 +78,8 @@
   
   }
 
-  .container {
-  position: relative;
-  height: 200px;
-  background-color: #eee;
-  border-radius: 50%;
-  margin: 0 auto;
-  width: 200px;
-}
 
-.arrow {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  position: absolute;
-  top: 50%;
-  margin-top: -10px;
-}
-
-.left {
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #000 transparent transparent;
-  left: -20px;
-}
-
-.right {
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #000;
-  right: -20px;
+.right-button-product{
+ position: absolute;
+ right: calc((105vw - 1250px) / 2 - 20px);
 }
