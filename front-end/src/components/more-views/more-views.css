@@ -81,5 +81,18 @@
 
 .right-button-product{
  position: absolute;
- right: calc((105vw - 1250px) / 2 - 20px);
+ right: 6.5%
 }
+
+@media (max-width: 998px) {
+  .right-button-product{
+    position: absolute;
+    right: 3.5%;
+   }
+  .section-title{
+   margin-left: 1.5rem;
+   margin-bottom: 2rem;
+   margin-top: 4rem
+  }
+ 
+  }

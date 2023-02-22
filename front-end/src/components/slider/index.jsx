@@ -31,29 +31,31 @@ const Slider = () => {
     };
   
     return (
-      <div className="carousel-container">
-        <div
-          className="carousel-btn left-btn"
-          onClick={() => incrementCarousel(-1)}
-        />
-        <div
-          className="carousel-btn right-btn"
-          onClick={() => incrementCarousel(1)}
-        />
-        <div className="carousel" ref={carousel}>
-          {img.map((img, idx) => (
-            <div
-              key={`${idx}-${img.title}`}
-              className={
-                idx === count ? "carousel-item active" : "carousel-item"
-              }
-            >
-              <img src={img.src} alt="img of carousel" />
-              <p>{img.title}</p>
-            </div>
-          ))}
-        </div>
+      <div className="slider-carousel-container">
+  <div
+    className="slider-carousel-btn slider-left-btn"
+    onClick={() => incrementCarousel(-1)}
+  />
+  <div
+    className="slider-carousel-btn slider-right-btn"
+    onClick={() => incrementCarousel(1)}
+  />
+  <div className="slider-carousel" ref={carousel}>
+    {img.map((img, idx) => (
+      <div
+        key={`${idx}-${img.title}`}
+        className={
+          idx === count
+            ? "slider-carousel-item active"
+            : "slider-carousel-item"
+        }
+      >
+        <img src={img.src} alt="img of carousel" />
+        <p>{img.title}</p>
       </div>
+    ))}
+  </div>
+</div>
     );
   };
   

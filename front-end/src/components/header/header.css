@@ -48,3 +48,7 @@ cursor: pointer;
     align-items: center;
     width: 250px;
 }
+
+img, svg {
+    vertical-align: 4px !important;
+}
