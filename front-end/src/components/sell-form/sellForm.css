@@ -168,3 +168,127 @@
     width: 50%;
     margin: 30px 0;
 }
+
+/* CSS para pantallas con un ancho máximo de 768px (típicamente dispositivos móviles) */
+@media screen and (max-width: 968px) {
+    .sell-form_conteiner{
+      margin: 30px;
+    }
+  
+    .sell-form_title{
+      font-size: 24px;
+      line-height: 28px;
+    }
+  
+    .sell-form_photo{
+      height: 200px;
+    }
+  
+    .sell-form_photo_instructions{
+      font-size: 14px;
+      line-height: 20px;
+    }
+  
+    .sell-form_photo_photodescription{
+      font-size: 12px;
+      line-height: 16px;
+    }
+  
+    .dropzone-container{
+      width: 30%;
+      height: 60%;
+    }
+  
+    .sell-form_kind{
+      width: 100%;
+      height: 350px;
+      padding: 20px;
+      margin: 10px;
+    }
+  
+    .sell-form_label{
+      font-size: 20px;
+      line-height: 24px;
+    }
+  
+    .sell-form_input__select{
+      height: 40px;
+      font-size: 14px;
+      line-height: 18px;
+      padding: 10px;
+      margin-top: 5px;
+    }
+  
+    .sell-options-button{
+      width: 100px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 16px;
+      margin: 5px;
+    }
+  
+    .grande{
+      height: 100px;
+    }
+  
+    .precio{
+      width: 150px;
+      height: 40px;
+    }
+  
+    .sell-form_price-container{
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .sell-form_kind__container{
+        display:block;
+        margin-right: 2rem;
+        margin-left: 10px;
+    }
+  }
+  
+  /* CSS para pantallas con un ancho máximo de 1200px (típicamente tablets y monitores pequeños) */
+  @media screen and (max-width: 1200px) {
+    .sell-form_conteiner{
+      margin: 60px;
+    }
+  
+    .sell-form_photo{
+      height: 220px;
+    }
+  
+    .dropzone-container{
+      width: 20%;
+      height: 80%;
+    }
+  
+    .sell-form_kind{
+      width: 100%;
+      height: 380px;
+      padding: 30px;
+      margin: 15px;
+    }
+  
+    .sell-form_input__select{
+      height: 45px;
+      font-size: 15px;
+      line-height: 20px;
+      padding: 12px;
+      margin-top: 7px;
+    }
+  
+    .sell-options-button{
+      width: 120px;
+      height: 45px;
+      font-size: 15px;
+      line-height: 18px;
+      margin: 7px;
+    }
+  
+    .sell-form_price-container{
+      width: 60%;
+      margin: 25px 0;
+    }
+  }
+  

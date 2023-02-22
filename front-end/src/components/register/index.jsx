@@ -96,7 +96,7 @@ const RegisterForn = ({ inputs, title }) => {
   
   return ( <>
   <div className="register-wrapper">
-  <div className="register-photo"><img src="" alt="" /><p>aa</p></div>
+  <div className="register-photo"><img src="" alt="" /><p>Aquí va la foto</p></div>
     <div className="register-container">
     <div className="inputs-container">
         <h1 className="register-title">Ingresá tus datos para registrarse</h1>

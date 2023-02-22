@@ -27,7 +27,7 @@ const ProductDetail = () => {
     <div>
       <h1>{titulo}</h1>
       <ItemCarousel fotos={fotos}/>
-      <p>{description}</p>
+      <p>a{description}</p>
       <span>${precioDeVenta}</span>
     </div>
   );

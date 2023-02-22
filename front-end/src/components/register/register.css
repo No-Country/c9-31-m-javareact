@@ -90,7 +90,7 @@ color: #3666F0;
     }
   
     .register-photo {
-      width: 100%;
+      display: none;
     }
   }
 
