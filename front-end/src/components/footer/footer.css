@@ -4,7 +4,7 @@
     align-items: center;
     background: #FAFAFA;
     border: 1px solid #EDEDED;
-    height: 260px;
+    padding: 30px 10px; /* Añadir un relleno para ajustar el espacio */
     margin-top: 100px;
 }
 
@@ -15,18 +15,21 @@
     width: 80%;
     margin: 30px auto;
 }
+
 .footer-tags_conteiner{
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 70%;
 }
+
 .footer-redes_conteiner{
     display: flex;
     width: 15%;
     justify-content: space-evenly;
     margin: 20px auto;
 }
+
 .footer-link{
     font-family: 'Poppins';
     font-style: normal;
@@ -34,7 +37,9 @@
     font-size: 16px;
     line-height: 20px;
     color: #3E3E3E;
+    margin-bottom: 1rem;
     text-decoration: none;
+    margin-right: 10px; /* Añadir un margen derecho para separar las palabras */
 }
 
 .footer-license{
@@ -44,4 +49,26 @@
     font-size: 14px;
     line-height: 24px;
     color: #3E3E3E;
+    margin-top: 10px; /* Añadir un margen superior para separar los párrafos */
+}
+
+/* Reglas para hacer el CSS responsivo */
+@media only screen and (max-width: 768px) {
+  .footer-logotags_conteiner {
+    flex-wrap: wrap;
+    width: 90%;
+  }
+  
+  .footer-tags_conteiner {
+    flex-wrap: wrap;
+    width: 90%;
+  }
+  
+  .footer-redes_conteiner {
+    width: 30%;
+  }
+  
+  .footer-license {
+    text-align: center;
+  }
 }
