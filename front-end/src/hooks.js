@@ -81,3 +81,57 @@ export async function getProductById(id) {
   console.log(product);
   return product;
 }
+
+// ? Me nació aprender recoil :p . Todo lo de abajo es un hook para el funcionamiento correcto del carrito de compras
+
+export let productincart = "No hay nada en el carrito";
+
+export const cartState = atom({
+  key: "cartState",
+  default: [],
+});
+
+function addToCart(product) {
+  return (cart) => [...cart, product];
+}
+
+function removeFromCart(productIndex) {
+  return (cart) => [    ...cart.slice(0, productIndex),    ...cart.slice(productIndex + 1),  ];
+}
+
+function updateCartItem(productIndex, newProduct) {
+  return (cart) => [    ...cart.slice(0, productIndex),    newProduct,    ...cart.slice(productIndex + 1),  ];
+}
+
+export function useCart() {
+  const [cart, setCart] = useRecoilState(cartState);
+  productincart = cart
+  
+  console.log("producto agregado " + productincart)
+
+  function addItem(product) {
+    setCart(addToCart(product));
+  }
+
+  function removeItem(productIndex) {
+    setCart(removeFromCart(productIndex));
+  }
+
+  function updateItem(productIndex, newProduct) {
+    setCart(updateCartItem(productIndex, newProduct));
+  }
+
+  function clearCart() {
+    setCart([]);
+  }
+
+  return {
+    cart,
+    addItem,
+    removeItem,
+    updateItem,
+    clearCart,
+  };
+}
+
+
