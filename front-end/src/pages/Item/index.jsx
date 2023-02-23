@@ -25,7 +25,7 @@ const ProductDetail = () => {
 
   const { addItem } = useCart();
   const handleAddToCart = () => {
-    addItem(id);
+    addItem({id, titulo, precioDeVenta});
   };
 
 

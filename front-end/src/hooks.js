@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase";
 import { useParams } from "react-router-dom";
+import { useRecoilValue } from 'recoil';
 
 export const picturesURLState = atom({
   key: "picturesState",
@@ -133,5 +134,13 @@ export function useCart() {
     clearCart,
   };
 }
+
+
+
+export function getProductInCart() {
+  const cart = useRecoilValue(cartState);
+  return cart;
+}
+
 
 
