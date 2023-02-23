@@ -3,25 +3,42 @@ import { BottomlessButton, CategoryButton } from "../../ui/buttons";
 import { LoginImg, ShoppingBag } from "../../img";
 import "./subHeader.css"
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
+import { useCart, productincart } from "../../hooks";
+
 
 export function SubHeader() {
+    const cart = items;
     const [isOpen, setIsOpen] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const storedUser = localStorage.getItem("user");
-    
-    const navigate = useNavigate()
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    const navigate = useNavigate();
+  
+    const { items, addItem, removeItem, updateItemQuantity } = useCart(); // Movido aquí
+  
+    function CartModal({ show, handleClose }) {
+      const cart = items; // Definido aquí
+      const [items, setItems] = useState(cart);
+      
+      useEffect(() => {
+        setItems(cart);
+      }, [cart]);
 
-
+    }
     function logout(){
         localStorage.clear();
         isLogged = false;
         window.location.reload();
     }
 
-    //? Trae el email guardado en el localStorage dentro del componente de login, isLogged sirve para comprobar si mostrar el mail o la opción para registrarse
-    // ?? aca saque el else porq lo agregue abajo. en la parte de text
+   
     let isLogged = false;
     let email;
     if (storedUser) {
@@ -31,12 +48,9 @@ export function SubHeader() {
         isLogged = true;
     } 
 
-    function handleshop(){
-        console.log("hi")
-    }
 
+console.log("Muchachos, " + productincart)
 
-    // ? Analiza si estamos logeados o no, en caso de que sí se despliega un menú a través de los useStates empleados y en caso de que no lleva a una página para iniciar sesión
     function handleClick(event) {
         if (isLogged) {
             setIsOpen(!isOpen);
@@ -45,7 +59,8 @@ export function SubHeader() {
     }
 
 
-    return <div className="sub_header-conteiner">
+    return <>
+    <div className="sub_header-conteiner">
         <div className="category-conteiner">
             <CategoryButton text="Mujer" arrow={true} />
             <CategoryButton text="Hombres" arrow={true} />
@@ -69,7 +84,42 @@ export function SubHeader() {
                 </div>
           
             )}
-            <BottomlessButton text="Carrito" img={<ShoppingBag />} onClick={handleshop}></BottomlessButton>
+            <BottomlessButton text="Carrito" img={<ShoppingBag />} onClick={handleShow}></BottomlessButton>
         </div>
+
     </div>
+    <Modal show={show} onHide={handleClose} animation={true}>
+      <Modal.Header closeButton>
+        <Modal.Title>Carrito de compras</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {/* Tengo que ver como lograr hacer funcionar lo siguiente  */}
+        {/* {productincart ? (
+          productincart.map((item) => (
+            <div key={item.id}>
+              <p>{item.title}</p>
+              <p>${item.price}</p>
+              <button onClick={() => removeItem(item.id)}>Remover</button>
+            </div>
+          ))
+        ) : (
+          <p>El carrito está vacío.</p>
+        )} */
+        productincart
+        }
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="secondary" onClick={handleClose}>
+          Cerrar
+        </Button>
+        <Button
+          variant="primary"
+          onClick={() => navigate("/checkout", { replace: true })}
+        >
+          Ir a la compra
+        </Button>
+      </Modal.Footer>
+    </Modal>
+          </>
 }

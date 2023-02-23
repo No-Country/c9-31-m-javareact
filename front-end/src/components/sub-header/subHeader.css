@@ -71,3 +71,36 @@
     cursor: pointer;
   }
   
+  .modal-content {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .modal-header,
+  .modal-footer {
+    border: none;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-dialog {
+    margin: 0;
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .modal-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  @media (min-width: 768px) {
+    .modal-dialog {
+      max-width: 50%;
+    }
+  }
