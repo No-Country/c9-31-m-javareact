@@ -6,7 +6,7 @@
 .product-carousel-container {
   display: flex;
   flex-wrap: nowrap;
-  width: 1150px;
+  width: 98%;
   margin: auto;
   margin-left: 1rem;
   transition: transform 0.5s ease;

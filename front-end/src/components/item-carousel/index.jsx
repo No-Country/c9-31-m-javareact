@@ -19,13 +19,13 @@ const handleSelect = (selectedIndex, e) => {
     <Carousel className='carousel-container' activeIndex={index} onSelect={handleSelect}>
     {fotos? fotos.map((f)=>{
     return( <Carousel.Item key={f}>
-        <img style={{width:"650px", height:"300px"}} src={f}/>
+        <img style={{width:"350px", height:"300px"}} src={f}/>
         
     </Carousel.Item>)
 }):<div>
     no foto
 </div>
-     }
+    }
     </Carousel>
     );
 }

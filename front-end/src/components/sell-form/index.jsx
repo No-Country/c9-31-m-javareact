@@ -5,7 +5,7 @@ import { LoadPhoto } from "../../img";
 import { Previews } from "../preview";
 import { useRecoilState } from "recoil";
 import { addProduct, picturesURLState } from "../../hooks";
-import { InputButton, SelectBasic } from "../../ui/inputs";
+import { ButtonGroup, InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
 import { useNavigate } from "react-router-dom";
 
@@ -18,6 +18,21 @@ export function SellForm(){
     const [talle, setTalle] = useState("")
     const [precioFinal,setPrecioFinal] = useState("")
     const navigate = useNavigate()
+    const [selectGenero, setSelectGenero] = useState(null)
+    const [selectEstado, setSelectEstado] = useState(null)
+    const [selectTalle, setSelectTalle] = useState(null)
+    
+    const styleSelect = {
+        borderRadius: "10px",
+        boxShadow: "0px 3px 24px 11px rgba(0,0,0,1)",
+      }
+    const styleSelectTalle = {
+        borderRadius: "30px",
+        boxShadow: "0px 3px 24px 11px rgba(0,0,0,1)",
+      }
+      const styleNoSelect = {
+        border: "none",
+      }
 
 //? este formulario arma un objeto "product" que tiene toda la data del producto a vender.
 // incluyendo un array con las url de las fotos.
@@ -89,9 +104,9 @@ export function SellForm(){
                 <div className="sell-form_kind">
                     <label className="sell-form_label">Genero:
                         <div className="sell-form_kind__butons-conteiner" >
-                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Femenino")}} type="button" value="Femenino"/>
-                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Masculino")}} type="button" value="Masculino"/>
-                            <InputButton readOnly className="sell-options-button" onClick={()=>{setGenero("Niños")}} type="button" value="Niños"/>
+                            <InputButton style= {selectGenero === "Femenino" ? styleSelect : styleNoSelect} readOnly className="sell-options-button" onClick={()=>{setGenero("Femenino"); setSelectGenero("Femenino")}} type="button" value="Femenino"/>
+                            <InputButton style= {selectGenero === "Masculino" ? styleSelect : styleNoSelect} readOnly className="sell-options-button" onClick={()=>{setGenero("Masculino");setSelectGenero("Masculino")}} type="button" value="Masculino"/>
+                            <InputButton style= {selectGenero === "Niños" ? styleSelect : styleNoSelect} readOnly className="sell-options-button" onClick={()=>{setGenero("Niños");setSelectGenero("Niños")}} type="button" value="Niños"/>
                             <input readOnly type="text" style={{display:"none"}} name="genero" value={genero}/>
                         </div>
                     </label>
@@ -105,10 +120,10 @@ export function SellForm(){
                 <div className="sell-form_kind">
                     <label className="sell-form_label">Estado:
                         <div className="sell-form_kind__butons-conteiner grid" >
-                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Con etiqueta")}} type="button" value="Nuevo con etiqueta"/>
-                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Sin etiqueta")}} type="button" value="Nuevo sin etiqueta"/>
-                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Pocas veces")}} type="button" value="Usado pocas veces"/>
-                            <InputButton readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Muchas veces")}} type="button" value="Usado muchas veces"/>
+                            <InputButton style= {selectEstado === "A" ? styleSelect : styleNoSelect} readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Con etiqueta"); setSelectEstado("A")}} type="button" value="Nuevo con etiqueta"/>
+                            <InputButton style= {selectEstado === "B" ? styleSelect : styleNoSelect}  readOnly className="sell-options-button grande" onClick={()=>{setEstado("Nuevo Sin etiqueta"); setSelectEstado("B")}} type="button" value="Nuevo sin etiqueta"/>
+                            <InputButton style= {selectEstado === "C" ? styleSelect : styleNoSelect}  readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Pocas veces"); setSelectEstado("C")}} type="button" value="Usado pocas veces"/>
+                            <InputButton style= {selectEstado === "D" ? styleSelect : styleNoSelect}  readOnly className="sell-options-button grande" onClick={()=>{setEstado("Usado Muchas veces"); setSelectEstado("D")}} type="button" value="Usado muchas veces"/>
                             <input readOnly type="text" style={{display:"none"}} name="estado" value={estado}/>
                         </div>
                     </label>
@@ -127,12 +142,12 @@ export function SellForm(){
                 <div className="sell-form_kind">
                     <label className="sell-form_label">Talle:
                         <div className="sell-form_kind__butons-conteiner grid" >
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xs")}} type="button" value="XS"/>
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("s")}} type="button" value="S"/>
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("m")}} type="button" value="M"/>
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("l")}} type="button" value="L"/>
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xl")}} type="button" value="XL"/>
-                            <InputButton readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xxl")}} type="button" value="XXL"/>
+                            <InputButton style= {selectTalle === "A" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xs");setSelectTalle("A")}} type="button" value="XS"/>
+                            <InputButton style= {selectTalle === "B" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("s");setSelectTalle("B")}} type="button" value="S"/>
+                            <InputButton style= {selectTalle === "C" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("m");setSelectTalle("C")}} type="button" value="M"/>
+                            <InputButton style= {selectTalle === "D" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("l");setSelectTalle("D")}} type="button" value="L"/>
+                            <InputButton style= {selectTalle === "F" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xl");setSelectTalle("F")}} type="button" value="XL"/>
+                            <InputButton style= {selectTalle === "G" ? styleSelectTalle : styleNoSelect} readOnly className="sell-options-button redondo" radius="50px" onClick={()=>{setTalle("xxl");setSelectTalle("G")}} type="button" value="XXL"/>
                             <input readOnly type="text" style={{display:"none"}} name="talle" value={talle}/>
                         </div>
                     </label>
