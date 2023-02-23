@@ -6,7 +6,7 @@ import "./footer.css"
 export function Footer(){
     return <div className="footer-conteiner">
         <div className="footer-logotags_conteiner">
-            
+            <Logo style={{color:"black", fontSize:"30px"}} />
             <div className="footer-tags_conteiner">
                 <a className="footer-link" href="http://">Contacto</a>
                 <a className="footer-link" href="http://">Sobre Tesh</a>

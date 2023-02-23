@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./logo.css"
 
-export function Logo(){
+export function Logo(props){
     const navigate = useNavigate()
-    return <div className="logo" onClick={()=>{navigate("/",{replace:true})}}>TESH</div>
+    return <div style={props.style} className="logo" onClick={()=>{navigate("/",{replace:true})}}>TESH</div>
 }
