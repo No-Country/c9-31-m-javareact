@@ -88,8 +88,7 @@ export function SubHeader() {
           ></BottomlessButton>
           {isOpen && (
             <div className="submenu">
-              <ul className="options-submenu-container">
-                <li className="options-submenu">Nivel 0</li>
+              <ul className="options-submenu-container">         
                 <li
                   className="options-submenu"
                   onClick={() => {
@@ -99,7 +98,6 @@ export function SubHeader() {
                   Ventas
                 </li>
                 <li className="options-submenu">Compras</li>
-                <li className="options-submenu">Configuracion</li>
                 <li className="options-submenu">Perfil</li>
                 <li className="options-submenu" onClick={() => logout()}>
                   Salir

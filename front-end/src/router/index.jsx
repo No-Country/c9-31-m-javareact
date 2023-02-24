@@ -25,6 +25,7 @@ function AppRoutes() {
 //    return currentUser ? children : <Navigate to="/login" />
 //     };
 
+const user = localStorage.getItem("user");
 
     return (
         <Routes>
@@ -32,8 +33,8 @@ function AppRoutes() {
                 <Route index element={<Home />} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/sell" element={<Sell />} />
-                <Route path="/misventas" element={<MySells />} />
+                <Route path="/sell" element={<Sell user={user}/>} />
+                <Route path="/misventas" element={<MySells user={user}/>} />
                 <Route path="/productos" element={<ProductsView />} />
                 <Route path="/item/:id" element={<ProductDetail/>} />
                 <Route path="/resultados" element={<SearchProducts/>} />

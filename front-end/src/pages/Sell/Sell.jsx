@@ -1,8 +1,11 @@
 import React from "react";
 import { SellForm } from "../../components/sell-form";
+import { Navigate } from "react-router-dom";
 
-const Sell = () => {
-
+const Sell = ({user}) => {
+  if(!user){
+  return <Navigate to="/register"/>
+  }
   // esto no lo vamos a usar aca. hay q pasar la info del vendedor por hooks a los componentes
   // let storedUser = localStorage.getItem("user");
   // let email;

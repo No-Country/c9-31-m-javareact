@@ -1,8 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import "./my-sells.css"
+import { Navigate } from 'react-router-dom';
 
-function MySells() {
+function MySells({user}) {
+  if(!user){
+    return <Navigate to="/register"/>
+    }
+
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
 
     const opciones = [
