@@ -4,9 +4,10 @@ import { Logo } from "../../ui/logo/index";
 import { SearchBar } from "../search-bar/index";
 import { Link } from "react-router-dom";
 import "./header.css"
+import { useUser } from "../../hooks";
 
 export default function Header() {
-
+useUser()
     return <div className="header-conteiner">
         <Logo />
         <SearchBar />

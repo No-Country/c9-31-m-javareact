@@ -14,6 +14,7 @@ import ProductsView from "../pages/ProductsView/Index";
 import MySells from "../components/my-sells";
 import SearchProducts from "../pages/Search-result";
 import SellerUserInfo from "../pages/SellerUserInfo";
+import { useUser } from "../hooks";
 
 function AppRoutes() {
 
@@ -24,19 +25,19 @@ function AppRoutes() {
 //     const RequireAuth = ({ children }) => {
 //    return currentUser ? children : <Navigate to="/login" />
 //     };
-
-let user = localStorage.getItem("user");
-if (user != undefined) {
-    user = true
-}
+//const user = useUser()
+//let user = localStorage.getItem("user");
+// if (user != undefined) {
+//     user = true
+// }
     return (
         <Routes>
             <Route path="/" element={<Layout/>} >
                 <Route index element={<Home />} />
                 <Route path="/login" element={<LoginPage/>} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/sell" element={<Sell user={user}/>} />
-                <Route path="/misventas" element={<MySells user={user}/>} />
+                <Route path="/sell" element={<Sell/>} />
+                <Route path="/misventas" element={<MySells/>} />
                 <Route path="/productos" element={<ProductsView />} />
                 <Route path="/item/:id" element={<ProductDetail/>} />
                 <Route path="/resultados" element={<SearchProducts/>} />

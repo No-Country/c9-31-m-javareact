@@ -1,5 +1,5 @@
 import { atom, useRecoilState } from "recoil";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   addDoc,
   serverTimestamp,
@@ -9,7 +9,6 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
 export const picturesURLState = atom({
@@ -145,4 +144,23 @@ export function useCart() {
 export function getProductInCart() {
   const cart = useRecoilValue(cartState);
   return cart;
+}
+
+// atomo User localHost-------------------------------
+export const userState = atom({
+  key: "userState",
+  default: "",
+});
+
+export function useUser() {
+  const [user, setUser] = useRecoilState(userState);
+  const localUser = localStorage.getItem("user");
+  useEffect(() => {
+    if (localUser) {
+      const parseUser = JSON.parse(localUser);
+      console.log(parseUser, "hook");
+      setUser(parseUser);
+    }
+  }, [localUser]);
+  return user;
 }
