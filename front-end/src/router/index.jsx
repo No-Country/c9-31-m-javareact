@@ -40,7 +40,8 @@ function AppRoutes() {
                 <Route path="/misventas" element={<MySells/>} />
                 <Route path="/productos" element={<ProductsView />} />
                 <Route path="/item/:id" element={<ProductDetail/>} />
-                <Route path="/resultados" element={<SearchProducts/>} />
+                <Route path="/resultados/:query" element={<SearchProducts/>} />
+                <Route path="/resultados/" element={<SearchProducts/>} />
                 <Route path="/informacionvendedor" element={<SellerUserInfo/>} />
             </Route>
         </Routes>
