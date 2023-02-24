@@ -8,7 +8,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const MoreViews = (props) => {
   const navigate = useNavigate()
   const data = useProducts()
-  console.log(data);
+  //console.log(data);
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const maxSlides = 4;
 

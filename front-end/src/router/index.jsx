@@ -26,8 +26,9 @@ function AppRoutes() {
 //     };
 
 let user = localStorage.getItem("user");
-if (user != undefined) user = true
-
+if (user != undefined) {
+    user = true
+}
     return (
         <Routes>
             <Route path="/" element={<Layout/>} >

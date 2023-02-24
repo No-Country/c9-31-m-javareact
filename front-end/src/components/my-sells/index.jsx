@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 
 function MySells({user}) {
   if(!user){
-    return <Navigate to="/register"/>
+    return <Navigate to="/login"/>
     }
 
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);

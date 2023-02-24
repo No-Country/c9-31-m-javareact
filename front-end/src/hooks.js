@@ -10,7 +10,7 @@ import {
 } from "firebase/firestore";
 import { db } from "./firebase";
 import { useParams } from "react-router-dom";
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue } from "recoil";
 
 export const picturesURLState = atom({
   key: "picturesState",
@@ -30,7 +30,7 @@ export function useProducts() {
       (snapShot) => {
         let list = [];
         snapShot.docs.forEach((doc) => {
-          console.log(doc.data(), "dataa");
+          //console.log(doc.data(), "dataa");
           list.push({ id: doc.id, ...doc.data() });
         });
         setData(list);
@@ -97,18 +97,25 @@ function addToCart(product) {
 }
 
 function removeFromCart(productIndex) {
-  return (cart) => [    ...cart.slice(0, productIndex),    ...cart.slice(productIndex + 1),  ];
+  return (cart) => [
+    ...cart.slice(0, productIndex),
+    ...cart.slice(productIndex + 1),
+  ];
 }
 
 function updateCartItem(productIndex, newProduct) {
-  return (cart) => [    ...cart.slice(0, productIndex),    newProduct,    ...cart.slice(productIndex + 1),  ];
+  return (cart) => [
+    ...cart.slice(0, productIndex),
+    newProduct,
+    ...cart.slice(productIndex + 1),
+  ];
 }
 
 export function useCart() {
   const [cart, setCart] = useRecoilState(cartState);
-  productincart = cart
-  
-  console.log("producto agregado " + productincart)
+  productincart = cart;
+
+  //console.log("producto agregado " + productincart);
 
   function addItem(product) {
     setCart(addToCart(product));
@@ -135,12 +142,7 @@ export function useCart() {
   };
 }
 
-
-
 export function getProductInCart() {
   const cart = useRecoilValue(cartState);
   return cart;
 }
-
-
-
