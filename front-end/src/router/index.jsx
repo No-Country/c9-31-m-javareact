@@ -25,7 +25,8 @@ function AppRoutes() {
 //    return currentUser ? children : <Navigate to="/login" />
 //     };
 
-const user = localStorage.getItem("user");
+let user = localStorage.getItem("user");
+if (user != undefined) user = true
 
     return (
         <Routes>
