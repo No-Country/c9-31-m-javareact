@@ -5,7 +5,7 @@ import { LoadPhoto } from "../../img";
 import { Previews } from "../preview";
 import { useRecoilState } from "recoil";
 import { addProduct, picturesURLState } from "../../hooks";
-import { ButtonGroup, InputButton, SelectBasic } from "../../ui/inputs";
+import { InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
 import { useNavigate } from "react-router-dom";
 

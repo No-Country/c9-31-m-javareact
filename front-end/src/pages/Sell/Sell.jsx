@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const Sell = ({user}) => {
   if(!user){
-  return <Navigate to="/register"/>
+  return <Navigate to="/login"/>
   }
   // esto no lo vamos a usar aca. hay q pasar la info del vendedor por hooks a los componentes
   // let storedUser = localStorage.getItem("user");
