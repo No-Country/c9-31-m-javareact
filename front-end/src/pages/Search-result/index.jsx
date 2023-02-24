@@ -3,13 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { ProductCard } from "../../components/product-card";
 import { useProducts } from "../../hooks";
 import { searchTerm } from "../../components/search-bar";
+import "./search-result.css"
 
 const SearchProducts = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const data = useProducts();
-
-  
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -35,21 +34,22 @@ const SearchProducts = () => {
             marginBottom: "20px",
           }}
         />
-        <div>
+        <div className="product-card-container">
           {data
             .filter((p) => p.titulo.toLowerCase().includes(query.toLowerCase()))
             .map((p) => (
-              <ProductCard
-                onClick={() => {
-                  navigate("/item/" + p.id, { replace: true });
-                }}
-                key={p.id}
-                sellerName={p.email}
-                productFoto={p.fotos[0]}
-                productName={p.titulo}
-                descripcion={p.descripcion}
-                precio={p.precioDeVenta}
-              />
+              <div className="product-card-wrapper" key={p.id}>
+                <ProductCard
+                  onClick={() => {
+                    navigate("/item/" + p.id, { replace: true });
+                  }}
+                  sellerName={p.email}
+                  productFoto={p.fotos[0]}
+                  productName={p.titulo}
+                  descripcion={p.descripcion}
+                  precio={p.precioDeVenta}
+                />
+              </div>
             ))}
         </div>
       </div>
@@ -58,3 +58,4 @@ const SearchProducts = () => {
 };
 
 export default SearchProducts;
+
