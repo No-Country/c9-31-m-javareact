@@ -28,6 +28,8 @@ function AppRoutes() {
 let user = localStorage.getItem("user");
 if (user != undefined) user = true
 
+console.log("Wenas, tengo que sentirme true para que ande todo. Ahora me siento: " + user)
+
     return (
         <Routes>
             <Route path="/" element={<Layout/>} >
