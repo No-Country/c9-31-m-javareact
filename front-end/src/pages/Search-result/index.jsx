@@ -1,44 +1,60 @@
-import React, { useState, useEffect } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ProductCard } from "../../components/product-card";
+import { useProducts } from "../../hooks";
+import { searchTerm } from "../../components/search-bar";
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+const SearchProducts = () => {
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const data = useProducts();
 
-  useEffect(() => {
-    const fetchSearchResults = async () => {
-      const q = query(collection(db, "products"), where("productName", ">=", searchTerm));
-      const querySnapshot = await getDocs(q);
-      const products = [];
-      querySnapshot.forEach((doc) => {
-        products.push({ id: doc.id, ...doc.data() });
-      });
-      setSearchResults(products);
-    };
+  
 
-    fetchSearchResults();
-  }, [searchTerm]);
-
-  const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      navigate(`/search?query=${query}`);
+    }
   };
 
   return (
-    <div>
-      <input type="text" value={searchTerm} onChange={handleChange} />
-      <ul>
-        {searchResults.map((product) => (
-          <li key={product.id}>
-            
-            <h2>{product.productName}</h2>
-            <img src={product.img} alt={product.name} style={{ width: '264px', height: '280px' }} />
-            <p>{product.productDescription}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div style={{ maxWidth: "1250px", margin: "30px auto" }}>
+        <h1 className="section-title">Search Products</h1>
+        <input
+          type="text"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+          onKeyPress={handleKeyPress}
+          style={{
+            width: "100%",
+            padding: "10px",
+            fontSize: "16px",
+            border: "2px solid #ddd",
+            borderRadius: "5px",
+            marginBottom: "20px",
+          }}
+        />
+        <div>
+          {data
+            .filter((p) => p.titulo.toLowerCase().includes(query.toLowerCase()))
+            .map((p) => (
+              <ProductCard
+                onClick={() => {
+                  navigate("/item/" + p.id, { replace: true });
+                }}
+                key={p.id}
+                sellerName={p.email}
+                productFoto={p.fotos[0]}
+                productName={p.titulo}
+                descripcion={p.descripcion}
+                precio={p.precioDeVenta}
+              />
+            ))}
+        </div>
+      </div>
+    </>
   );
 };
 
-export default SearchBar;
+export default SearchProducts;
