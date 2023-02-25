@@ -73,11 +73,11 @@ export function SubHeader() {
     <>
       <div className="sub_header-conteiner">
         <div className="category-conteiner">
-          <CategoryButton text="Mujer" arrow={true} />
-          <CategoryButton text="Hombres" arrow={true} />
-          <CategoryButton text="Niños" arrow={true} />
-          <CategoryButton text="Ofertas" arrow={true} />
-          <CategoryButton text="Sobre Nosotros" arrow={true} />
+          <CategoryButton onClick={()=>{navigate("/resultados/femenino", { replace: true })}} text="Mujer"  />
+          <CategoryButton onClick={()=>{navigate("/resultados/masculino", { replace: true })}} text="Hombres"  />
+          <CategoryButton onClick={()=>{navigate("/resultados/niños", { replace: true })}} text="Niños"  />
+          <CategoryButton  text="Ofertas"  />
+          <CategoryButton  text="Sobre Nosotros"  />
         </div>
 
         <div className="category-conteiner">

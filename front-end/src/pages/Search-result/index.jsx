@@ -1,3 +1,4 @@
+import { query } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductCard } from "../../components/product-card";
@@ -9,14 +10,25 @@ const SearchProducts = () => {
   const data = useProducts();
   const params = useParams()
 
+  let result;
+  
+  if(params.query){
+  result = data.filter((p)=>
+  p.titulo.toLowerCase().includes(params.query.toLowerCase())||
+  p.genero.toLowerCase().includes(params.query.toLowerCase())||
+  p.prenda.toLowerCase().includes(params.query.toLowerCase())); 
+  }
+ 
+
+  console.log(result);
+
   return (
     <>
       <div style={{ maxWidth: "1250px", margin: "30px auto" }}>
         <h1 className="section-title">Search Products</h1>
         <div className="product-card-container">
           {params.query?
-          data
-            .filter((p) => p.titulo.toLowerCase().includes(params.query.toLowerCase()))
+          result
             .map((p) => (
               <div className="product-card-wrapper" key={p.id}>
                 <ProductCard
