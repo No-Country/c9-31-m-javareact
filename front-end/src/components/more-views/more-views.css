@@ -1,6 +1,7 @@
 .product-carousel-wrapper {
   width: 100%;
   overflow: hidden;
+  margin-right: 2rem;
 }
 
 .product-carousel-container {
@@ -8,9 +9,9 @@
   flex-wrap: nowrap;
   width: 98%;
   margin: auto;
-  margin-left: 1rem;
   transition: transform 0.5s ease;
   overflow: hidden;
+  
 }
 
 .section-title{
@@ -81,7 +82,7 @@
 
 .right-button-product{
  position: absolute;
- right: 6.5%
+ right: 5.5%
 }
 
 @media (max-width: 998px) {
@@ -96,3 +97,26 @@
   }
  
   }
+
+  .left-button-product{
+    margin-left: 2rem;
+    margin-right: -2rem;
+    z-index: 10;
+  }
+
+  .product-carousel-loading{
+    font-size: 40rem
+  }
+
+  .preloading-card {
+    background-color: #ddd; 
+    height: 350px; 
+    width: 250px; 
+    margin-right: 20px; 
+    border-radius: 4px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  

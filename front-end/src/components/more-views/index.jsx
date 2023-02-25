@@ -6,11 +6,11 @@ import { useProducts } from "../../hooks";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const MoreViews = (props) => {
-  const navigate = useNavigate()
-  const data = useProducts()
-  //console.log(data);
+  const navigate = useNavigate();
+  const data = useProducts();
   const [currentSlide, setCurrentSlide] = React.useState(0);
   const maxSlides = 4;
+  const [loading, setLoading] = React.useState(true);
 
   const handlePrevSlide = () => {
     setCurrentSlide((currentSlide) => Math.max(currentSlide - 1, 0));
@@ -19,6 +19,12 @@ const MoreViews = (props) => {
   const handleNextSlide = () => {
     setCurrentSlide((currentSlide) => Math.min(currentSlide + 1, maxSlides));
   };
+
+  React.useEffect(() => {
+    if (data.length > 0) {
+      setLoading(false);
+    }
+  }, [data]);
 
   return (
     <>
@@ -31,7 +37,8 @@ const MoreViews = (props) => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                width: "100%"
+                marginLeft: "-1rem",
+                width: "100%",
               }}
             >
               <button
@@ -47,12 +54,23 @@ const MoreViews = (props) => {
                   backgroundColor: "#fff",
                   border: "2px solid #ddd",
                 }}
+                className="left-button-product"
               >
                 <FaChevronLeft size={24} color="#444" />
               </button>
-              {data
-                .slice(currentSlide, currentSlide + 4)
-                .map((p) => (
+
+              {loading ? (
+                <>
+                  {[...Array(4)].map((_, i) => (
+                   
+                        <div className="preloading-card">
+                        
+                        </div>
+                      
+                  ))}
+                </>
+              ) : (
+                data.slice(currentSlide, currentSlide + 4).map((p) => (
                   <ProductCard
                     onClick={() => {
                       navigate("/item/" + p.id, { replace: true });
@@ -64,7 +82,9 @@ const MoreViews = (props) => {
                     descripcion={p.descripcion}
                     precio={p.precioDeVenta}
                   />
-                ))}
+                ))
+              )}
+
               <button
                 onClick={handleNextSlide}
                 disabled={currentSlide === maxSlides}
