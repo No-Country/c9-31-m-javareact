@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import "./sellForm.css";
 import { LoadPhoto } from "../../img";
@@ -8,6 +8,7 @@ import { addProduct, picturesURLState } from "../../hooks";
 import { InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
 import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export function SellForm() {
   const [showDropzpne, setShowDropzpne] = useState(false);
@@ -32,6 +33,24 @@ export function SellForm() {
   const styleNoSelect = {
     border: "none",
   };
+
+  // ? La función verifica si el usuario está conectado efectivamente a firebase y guarda toda la información necesaria
+  // ? Decidí no usar localstorage (a pesar de su sencillez) porque puede ser facilmente explotado al subir productos personas que manipulen el localstorage y no tengan cuenta real
+  // ! De todas formas hay que mejorar la seguridad de esta parte cuando configuremos el .env
+  const [usernameMail, setUsernameMail] = useState('');
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsernameMail(user.email);
+      } else {
+        console.log("Usuario no logeado");
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   //? este formulario arma un objeto "product" que tiene toda la data del producto a vender.
   // incluyendo un array con las url de las fotos.
@@ -64,6 +83,7 @@ export function SellForm() {
         descripcion: e.target.descripcion.value,
         precioDeVenta: e.target.precio.value,
         ganancia: e.target.ganancia.value,
+        usernameMail: e.target.usernameMail.value,
         fotos: imgs,
       };
       addProduct(productToSell);
@@ -433,6 +453,7 @@ export function SellForm() {
             </div>
           </label>
         </div>
+        <input type="hidden" name="usernameMail" value={usernameMail} />
         <ConfirmButton text="Vender" type="submit" />
       </form>
     </div>

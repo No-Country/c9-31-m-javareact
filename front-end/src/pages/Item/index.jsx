@@ -13,6 +13,7 @@ const ProductDetail = () => {
   const [description, setDescription] = useState("");
   const [estado, setEstado] = useState("");
   const [precioDeVenta, setPrecioDeVenta] = useState("");
+  const [emailvendedor, setEmailvendedor] = useState("");
   const { id } = useParams();
   getProductById(id);
   const product = useRecoilValue(productState);
@@ -24,6 +25,7 @@ const ProductDetail = () => {
     setEstado(product.estado);
     setDescription(product.descripcion);
     setPrecioDeVenta(product.precioDeVenta);
+    setEmailvendedor(product.usernameMail);
   }, [product]);
 
   const { addItem } = useCart();
@@ -59,7 +61,7 @@ const ProductDetail = () => {
         </div>
       </div>
       <div className="product-main-details">
-        <h3 className="product-main-username">Manuela Perez</h3>
+        <h3 className="product-main-username">{emailvendedor}</h3>
 
         <h1 className="product-main-name">{titulo}</h1>
         <p className="product-main-marca">{marca}</p>

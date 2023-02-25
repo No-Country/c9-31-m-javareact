@@ -80,7 +80,7 @@ const MoreViews = (props) => {
                       navigate("/item/" + p.id, { replace: true });
                     }}
                     key={p.id}
-                    sellerName={p.email}
+                    sellerName={p.usernameMail}
                     productFoto={p.fotos[0]}
                     productName={p.titulo}
                     descripcion={p.descripcion}
