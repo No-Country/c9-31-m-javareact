@@ -3,7 +3,6 @@ import img from "../../img/Rectangle 25.png"
 import Card from 'react-bootstrap/Card';
 import "./productCard.css"
 
-//hay q pasar por props los datos que tiene q mostrar la card
 export function ProductCard(props) {
 return (
     <Card onClick={props.onClick} className='card-container'>

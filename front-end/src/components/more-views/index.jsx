@@ -7,22 +7,30 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const MoreViews = (props) => {
   const navigate = useNavigate();
-  const data = useProducts();
   const [currentSlide, setCurrentSlide] = React.useState(0);
-  const maxSlides = 4;
+  const [maxSlides, setMaxSlides] = React.useState(4);
   const [loading, setLoading] = React.useState(true);
+
+  const data = useProducts();
+  const numProducts = data.length;
 
   const handlePrevSlide = () => {
     setCurrentSlide((currentSlide) => Math.max(currentSlide - 1, 0));
   };
 
   const handleNextSlide = () => {
-    setCurrentSlide((currentSlide) => Math.min(currentSlide + 1, maxSlides));
+    setCurrentSlide((currentSlide) => Math.min(currentSlide + 1, Math.ceil(numProducts / maxSlides) - 1));
   };
 
   React.useEffect(() => {
     if (data.length > 0) {
       setLoading(false);
+    }
+    if (window.innerWidth <= 768) {
+      setMaxSlides(2);
+    }
+    if (window.innerWidth <= 480) {
+      setMaxSlides(1);
     }
   }, [data]);
 
@@ -61,16 +69,12 @@ const MoreViews = (props) => {
 
               {loading ? (
                 <>
-                  {[...Array(4)].map((_, i) => (
-                   
-                        <div className="preloading-card">
-                        
-                        </div>
-                      
+                  {[...Array(maxSlides)].map((_, i) => (
+                    <div className="preloading-card" key={i}></div>
                   ))}
                 </>
               ) : (
-                data.slice(currentSlide, currentSlide + 4).map((p) => (
+                data.slice(currentSlide * maxSlides, (currentSlide + 1) * maxSlides).map((p) => (
                   <ProductCard
                     onClick={() => {
                       navigate("/item/" + p.id, { replace: true });
@@ -87,7 +91,7 @@ const MoreViews = (props) => {
 
               <button
                 onClick={handleNextSlide}
-                disabled={currentSlide === maxSlides}
+                disabled={currentSlide === Math.ceil(numProducts / maxSlides) - 1}
                 style={{
                   display: "flex",
                   alignItems: "center",
