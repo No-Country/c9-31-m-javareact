@@ -46,6 +46,8 @@
     line-height: 20px;
     color: #171520;
     text-align: left;
+    height: 40px;
+    margin: 5px 0;
 }
 
 .card-description{
@@ -56,4 +58,6 @@
     line-height: 20px;
     text-align: left;
     color: #626262;
+    height: 40px;
+    margin: 10px 0;
 }
