@@ -1,11 +1,17 @@
 .search-conteiner{
-    border: 1px solid #1C4C96;
-    background: #FFFFFF;
-    border-radius: 10px;
-    height: 50px;
-    width: 630px;
-    margin: auto;
-    display: flex;
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .search-conteiner{
+        border: 1px solid #1C4C96;
+        background: #FFFFFF;
+        border-radius: 10px;
+        height: 50px;
+        width: 630px;
+        margin: auto;
+        display: flex;
+    }
 }
 
 .search-button{

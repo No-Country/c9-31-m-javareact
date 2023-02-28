@@ -1,16 +1,29 @@
 .header-conteiner{
-    height: 120px;
+    height: 100px;
     background: rgba(54, 102, 240, 0.6);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 10px;
     border-bottom: 1px solid #EDEDED;
+}
+
+@media (min-width: 600px) {
+    .header-conteiner{
+        padding: 30px;
+        height: 120px;
+    }
 }
 
 .logo{
  width: 185px;
- text-align: left;
+ text-align: center;
+}
+@media (min-width: 600px) {
+    .logo{
+        width: 280px;
+        text-align: left;
+    }
 }
 
 .login-button{
@@ -43,12 +56,57 @@ cursor: pointer;
 }
 
 .header-buttons{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 250px;
+   display: none;
+}
+
+@media (min-width: 600px) {
+    .header-buttons{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 250px;
+    }
 }
 
 img, svg {
     vertical-align: 4px !important;
+}
+
+.responsive-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 22%;
+    z-index: 8;
+}
+
+@media (min-width: 600px) {
+    .responsive-wrap{
+        display: none;
+    }
+}
+
+.menu-header-responsive{
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    background: #3666F0;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    border-radius: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.menu-header-responsive_option{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 18px;
+    text-align: right;
+    color: white;
 }
