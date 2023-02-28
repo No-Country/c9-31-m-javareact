@@ -5,8 +5,15 @@
 }
 
 .login-page_carousel{
-    width: 607px;
-    height: 749px;
-    background: #EDEDED;
-    border-radius: 16px;
+   display: none;
+}
+
+@media (min-width: 900px) {
+    .login-page_carousel {
+        display: inherit;
+        width: 607px;
+        height: 749px;
+        background: #EDEDED;
+        border-radius: 16px;
+    }
 }
