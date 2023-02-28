@@ -96,6 +96,7 @@ export function SellForm() {
     }
   }
 
+
   function handleChange(e) {
     const value = e.target.value;
     const newValue = value - (value / 100) * 10;
@@ -434,13 +435,15 @@ export function SellForm() {
                   onChange={handleChange}
                   name="precio"
                   className="sell-form_input__select precio"
-                  type="text"
+                  type="number"
                   placeholder="$  0"
+                  maxlength="8"
+                  size="10"
                   required
                 />
               </label>
               <label style={{ fontSize: "16px" }} className="sell-form_label">
-                Para vos
+                Ganancia
                 <input
                   className="sell-form_input__select precio"
                   name="ganancia"

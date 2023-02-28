@@ -1,5 +1,5 @@
 import React from 'react';
-import img from "../../img/Rectangle 25.png"
+import img from "../../img/Frame 11200.png"
 import Card from 'react-bootstrap/Card';
 import "./productCard.css"
 
@@ -17,7 +17,7 @@ return (
             <div>
                 <Card.Text className='card-description'>{props.descripcion.slice(0,60)+"..." || "desctipcion breve del producto"} </Card.Text>
             </div>
-            <h3 className='card-title'>${(props.precio) ||"Precio"}</h3>
+            <h3 className='card-title'>${(props.precio.slice(0,6)) ||"Precio"}</h3>
             </Card.Body>   
         </div>
     </Card>
