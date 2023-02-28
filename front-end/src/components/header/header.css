@@ -6,6 +6,7 @@
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #EDEDED;
+    margin-bottom: 30px;
 }
 
 @media (min-width: 600px) {
@@ -88,8 +89,8 @@ img, svg {
 
 .menu-header-responsive{
     position: absolute;
-    width: 50%;
-    height: 40%;
+    width: 60%;
+    height: 50%;
     background: #3666F0;
     top: 0;
     left: 0;
@@ -109,4 +110,13 @@ img, svg {
     line-height: 18px;
     text-align: right;
     color: white;
+}
+
+.menu-header-responsive_ul{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 85px;
+    align-items: flex-start;
 }
