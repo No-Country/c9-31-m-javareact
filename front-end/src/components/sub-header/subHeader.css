@@ -5,10 +5,16 @@
 }
 
 .sub_header-conteiner{
+    display: none;
+}
+
+@media (min-width: 900px) {
+  .sub_header-conteiner{
     display: flex;
     justify-content: space-around;
     padding-left: 20%;
     margin: 20px 0;
+}
 }
 
 .category-container {

@@ -1,7 +1,12 @@
 .login-page_conteiner{
-    margin: 80px;
+    margin: 10px;
     display: flex;
     justify-content: space-evenly;
+}
+@media (min-width: 900px) {
+    .login-page_conteiner{
+        margin: 80px;
+    }
 }
 
 .login-page_carousel{
