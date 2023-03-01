@@ -57,13 +57,14 @@ export function LoginButton(props){
                     className="options-submenu"
                     onClick={() => {
                     navigate("/misventas", { replace: true });
+                    setIsOpen(!isOpen)
                     }}
                 >
                     Ventas
                 </li>
                 <li className="options-submenu">Compras</li>
                 <li className="options-submenu">Perfil</li>
-                <li className="options-submenu" onClick={() => logout()}>
+                <li className="options-submenu" onClick={() => {logout();setIsOpen(!isOpen)}}>
                     Salir
                 </li>
                 </ul>
