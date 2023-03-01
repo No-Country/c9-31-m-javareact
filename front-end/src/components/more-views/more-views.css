@@ -2,6 +2,8 @@
   width: 100%;
   overflow: hidden;
   margin-right: 2rem;
+  position: relative;
+  display: flex;
 }
 
 .product-carousel-container {
@@ -11,7 +13,7 @@
   margin: auto;
   transition: transform 0.5s ease;
   overflow: hidden;
-  
+  justify-content: center;
 }
 
 .section-title{
@@ -82,8 +84,18 @@
 
 .right-button-product{
  position: absolute;
- right: 5.5%
+ right: 2%
 }
+
+.product-carrousel-position{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -2.5rem;
+  width: 100%;
+}
+
+
 
 @media (max-width: 998px) {
   .right-button-product{
@@ -123,5 +135,39 @@
   @media (max-width: 480px) {
     .product-carousel-item {
       flex: 0 0 100%;
+    }
+    .product-carrousel-position{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: -2.5rem;
+      margin-right: 3.15rem;
+      width: 100%;
+    }
+    .left-button-product{
+      margin-left: 3rem;
+    }
+    .right-button-product{
+      margin-right: 0.8rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .product-carousel-item {
+      flex: 0 0 100%;
+    }
+    .product-carrousel-position{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: -2.5rem;
+      margin-right: 2.3rem;
+      width: 100%;
+    }
+    .left-button-product{
+      margin-left: 3rem;
+    }
+    .right-button-product{
+      margin-right: 0.8rem;
     }
   }

@@ -1,29 +1,40 @@
 import React from "react";
 import { userInputs } from "./userInputs";
-import { 
-  //useEffect, 
-  useState } from "react";
-import {
-  // addDoc,
-  // collection,
-  doc,
-  serverTimestamp,
-  setDoc,
-} from "firebase/firestore";
-import { auth,
-    db,
-  //storage
-  } from "../../firebase";
+import { useState } from "react";
+import { doc, serverTimestamp, setDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-//import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-import "./register.css"
+import "./register.css";
+import { Link } from "react-router-dom";
+import LoginCarousel from "../login-carousel";
 
 const RegisterForn = ({ inputs, title }) => {
   //const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  console.log("La contraseña es " + data.password);
+
+  const handleInput = (e) => {
+    const id = e.target.id;
+    const value = e.target.value;
+    setData({ ...data, [id]: value });
+
+    const input = e.target;
+    const errorMessage = input.parentNode.querySelector(".error-message");
+
+    if (!input.validity.valid) {
+      errorMessage.style.display = "block";
+    } else {
+      errorMessage.style.display = "none";
+    }
+  };
+
+  const handleCheckbox = (e) => {
+    setData({ ...data, acceptTerms: e.target.checked });
+  };
 
   // ?? a esta funcionalidad la comente porque no esta en el diseño. Prefiero que nos concentremos en respetar el diseño y...
   // ... darle mas importancia al flujo de vender, publicar productos.
@@ -67,15 +78,19 @@ const RegisterForn = ({ inputs, title }) => {
   //   file && uploadFile();
   // }, [file]);
 
-
-  const handleInput = (e) => {
-    const id = e.target.id;
-    const value = e.target.value;
-    setData({ ...data, [id]: value });
-  };
-
   const handleAdd = async (e) => {
     e.preventDefault();
+
+    // if (data.password !== data.confirmPassword) {
+    //   alert("Las contraseñas no coinciden.");
+    //   return;
+    // }
+
+    if (!data.acceptTerms) {
+      alert("Debe aceptar los términos y condiciones.");
+      return;
+    }
+
     try {
       const res = await createUserWithEmailAndPassword(
         auth,
@@ -87,66 +102,91 @@ const RegisterForn = ({ inputs, title }) => {
         ...data,
         timeStamp: serverTimestamp(),
       });
-      navigate("/")
-      
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
   };
-  
-  return ( <>
-  <div className="register-wrapper">
-  <div className="register-photo"><img src="" alt="" /><p>Aquí va la foto</p></div>
-    <div className="register-container">
-    <div className="inputs-container">
-        <h1 className="register-title">Ingresá tus datos para registrarse</h1>
-        
-        <form onSubmit={handleAdd} className="inputs-display">
-              {/* <div className="formInput">
-                <label htmlFor="file">
-                  apretá aquí para subir alguna imagen imagen
-                </label>
-                <input
-                  type="file"
-                  id="file"
-                  onChange={(e) => setFile(e.target.files[0])}
-                  style={{ display: "none" }}
-                />
-              </div> */}
 
+  return (
+    <>
+      <div className="register-wrapper">
+      <div className="login-page_carousel">
+        <LoginCarousel />
+        </div>
+        <div className="register-container">
+          <div className="inputs-container">
+            <h1 className="register-title">
+              Ingresá tus datos para registrarse
+            </h1>
+
+            <form onSubmit={handleAdd} className="inputs-display">
               {userInputs.map((input) => (
                 <div className="register-inputs" key={input.id}>
+                  <input
+                    id={input.id}
+                    type={input.type}
+                    placeholder={input.placeholder}
+                    pattern={input.pattern}
+                    onChange={handleInput}
+                  />
+
+                  <span className="error-message" style={{ display: "none" }}>
+                    {input.message}
+                  </span>
+                </div>
+              ))}
+              {/* <div className="register-inputs">
                 <input
-                  id={input.id}
-                  type={input.type}
-                  placeholder={input.placeholder}
+                  id="passwordConfirmation"
+                  type="password"
+                  placeholder="Confirmar contraseña:"
+                  pattern={`^${data.password}$`}
+                  value={data.passwordConfirmation}
                   onChange={handleInput}
                 />
+                <span className="error-message" style={{ display: "none" }}>
+                  Las contraseñas no coinciden.
+                </span>
+              </div> */}
+
+              <div className="terms-container">
+                <input
+                  type="checkbox"
+                  id="acceptTerms"
+                  onChange={handleCheckbox}
+                  checked={data.acceptTerms}
+                />
+                <label htmlFor="acceptTerms">
+                  Acepto los términos y condiciones
+                </label>
+                <i className="checkmark"></i>
               </div>
-              
-              ))}
-  
-  <input type="checkbox" id="accept-terms" />
-  <label for="accept-terms">Acepto los términos y condiciones</label>
-  <i class="checkmark"></i>
 
+              <div className="button-wrapper">
+                <button
+                  disabled={per !== null && per < 100}
+                  type="submit"
+                  className="register-botton"
+                >
+                  Registrarme
+                </button>
+              </div>
 
-
-  <div className="button-wrapper">
-  <button disabled={per !== null && per < 100} type="submit" className="register-botton">
-    Registrarme
-  </button>
-</div>
-
-<p className="login-register">¿Ya tenés cuenta?</p>
-<p className="login-register">Inicia de sesión</p>
-
+              <p className="login-register">¿Ya tenés cuenta?</p>
+              <Link to="/login">
+                <p
+                  className="login-register"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Inicia sesión
+                </p>
+              </Link>
             </form>
-
-            </div>
-</div>
-</div>
-</>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
