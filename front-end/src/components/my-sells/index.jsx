@@ -1,46 +1,90 @@
-import React from 'react'
-import { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import "./my-sells.css"
 import { Navigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userState } from '../../hooks';
+import { useProducts } from '../../hooks';
+import { ProductCard } from '../../components/product-card';
+import { getAuth } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
+
 
 function MySells() {
-  
-    const user = useRecoilValue(userState)
-    const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+  const user = useRecoilValue(userState)
+  const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
+  const data = useProducts();
 
-    const opciones = [
-      {
-        id: 1,
-        nombre: 'Vendido',
-        contenido: 'Contenido de la opción 1'
-      },
-      {
-        id: 2,
-        nombre: 'Para enviar',
-        contenido: 'Contenido de la opción 2'
-      },
-      {
-        id: 3,
-        nombre: 'En transito',
-        contenido: 'Contenido de la opción 3'
-      },
-      {
-        id: 4,
-        nombre: 'Ganancias',
-        contenido: 'Contenido de la opción 4'
+ // ? Controla el mail guardado para almacenar y filtrar los productos que se muestran
+  const [usernameMail, setUsernameMail] = useState("");
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsernameMail(user.email);
+      } else {
+        console.log("Usuario no logeado");
+        Navigate("/", { replace: true })
       }
-    ];
-  
-    const seleccionarOpcion = (opcion) => {
-      setOpcionSeleccionada(opcion);
-    };
+    });
 
-  return (user.email?
-    <div className='div-mysells'><h3 className='my-sells'>Mis ventas</h3>
-        <div className="rectangulo"></div>
-      <div className="opciones">
+    return () => unsubscribe();
+  }, []);
+
+
+  console.log(data[0])
+  // Obtener las prendas publicadas del usuario actual
+  const prendasPublicadas = data.filter(p => p.usernameMail === usernameMail);
+
+  const opciones = [
+    {
+      id: 1,
+      nombre: 'Prendas publicadas',
+      contenido: (
+        <div className="product-card-container">
+          <p>Tus prendas publicadas son</p>
+          {prendasPublicadas.map((p) => (
+            <div className="product-card-wrapper" key={p.id}>
+              <ProductCard
+                onClick={() => {}}
+                sellerId={usernameMail}
+                productFoto={p.fotos[0]}
+                productName={p.titulo}
+                descripcion={p.descripcion}
+                precio={p.precioDeVenta}
+              />
+            </div>
+          ))}
+        </div>
+      )
+    },
+    {
+      id: 2,
+      nombre: 'Para enviar',
+      contenido: 'Contenido de la opción 2'
+    },
+    {
+      id: 3,
+      nombre: 'En transito',
+      contenido: 'Contenido de la opción 3'
+    },
+    {
+      id: 4,
+      nombre: 'Ganancias',
+      contenido: 'Muchas'
+    }
+  ];
+
+  const seleccionarOpcion = (opcion) => {
+    setOpcionSeleccionada(opcion);
+  };
+
+  return (user.email ?
+    <div className='div-mysells'>
+      <h3 className='my-sells'>Mis ventas</h3>
+      <div className="rectangulo"></div>
+      <div className="opciones-container">
         {opciones.map((opcion) => (
           <div key={opcion.id} onClick={() => seleccionarOpcion(opcion)} className={`opcion ${opcionSeleccionada === opcion ? 'seleccionada' : ''}`}>
             {opcion.nombre}
@@ -48,14 +92,14 @@ function MySells() {
         ))}
       </div>
       {opcionSeleccionada && (
-        <div className="contenido">
+        <div className="contenido-opcion">
           {opcionSeleccionada.contenido}
         </div>
       )}
     </div>
     :
     <Navigate to="/login"/>
-  )
+  );
 }
 
-export default MySells
+export default MySells;
