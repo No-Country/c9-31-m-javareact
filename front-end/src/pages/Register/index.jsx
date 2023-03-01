@@ -1,14 +1,22 @@
 import React from 'react'
 import RegisterForn from '../../components/register'
 import LoginCarousel from '../../components/login-carousel'
+import { useRecoilValue } from 'recoil';
+import { userState } from '../../hooks';
+import { Navigate } from "react-router-dom";
 
 function Register() {
+  const user = useRecoilValue(userState);
+  
   return (
-    <div className="register-page_conteiner">
-        
-        <RegisterForn />
-    </div>
-  )
+    <>
+      {user.email ? <Navigate to="/" replace /> : (
+        <div className="register-page_conteiner">
+          <RegisterForn />
+        </div>
+      )}
+    </>
+  );
 }
 
-export default Register
+export default Register;

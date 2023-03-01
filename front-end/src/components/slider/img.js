@@ -1,18 +1,18 @@
 const img = [
     {
-      src: "https://cdn.create.vista.com/api/media/medium/177041398/stock-photo-excited-young-shopper-looking-clothes?token=",
+      src: "https://images.unsplash.com/photo-1603001088226-17762b4ea534?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
       title: "",
     },
     {
-      src: "https://cdn.create.vista.com/api/media/medium/231144952/stock-photo-woman-buying-clothes-fashion-store?token=",
+      src: "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80",
       title: "",
     },
     {
-      src: "https://cdn.create.vista.com/api/media/medium/221720992/stock-photo-happy-young-couple-smiling-each?token=",
+      src: "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
       title: "",
     },
     {
-      src: "https://img.freepik.com/foto-gratis/mujer-atractiva-emocional-que-sostiene-ropa-percha-tienda-ropa_285396-4597.jpg?w=740&t=st=1676641621~exp=1676642221~hmac=9df7eaa337171e79c6c1b011e91aa0d0ac4b292cacf35d09c229fdd9cfac9103",
+      src: "https://images.unsplash.com/photo-1520006403909-838d6b92c22e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       title: "",
     },
   ];
