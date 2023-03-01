@@ -41,6 +41,7 @@ const ProductDetail = () => {
         description
       })
       localStorage.setItem("carrito",JSON.stringify(carrito) )
+      window.alert("producto agregado al carrito")
     } else{
       localStorage.setItem("carrito",JSON.stringify([{
         id,
@@ -49,6 +50,7 @@ const ProductDetail = () => {
         precio:product.precioDeVenta,
         description
       }]))
+      window.alert("producto agregado al carrito")
     }
 
 

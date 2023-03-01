@@ -39,44 +39,6 @@
     width: 24px;
     height: 24px;
   }
-  
-  .submenu {
-    width: 270px;
-    height: 410px;
-    position: absolute;
-    z-index: 9;
-    left: 1071px;
-    top: 200px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-    text-align: left;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  .options-submenu-container{
-    width: 70%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  }
-
-  .options-submenu{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    color: #6F6F6F;
-    border-bottom: 1px solid #3666F0;
-    width: 100%;
-    cursor: pointer;
-  }
-  
   .modal-content {
     border-radius: 0;
     box-shadow: none;

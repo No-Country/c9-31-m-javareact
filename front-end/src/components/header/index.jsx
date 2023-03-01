@@ -7,6 +7,7 @@ import { useUser } from "../../hooks";
 import Hamburger from 'hamburger-react'
 import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart } from "../shopping-cart";
+import { LoginButton } from "../../ui/buttons";
 
 export default function Header() {
 const navigate = useNavigate()
@@ -21,7 +22,9 @@ useUser()
         <Logo />
         <div className="responsive-wrap">
             <WhiteSearchIcon style={{padding:"6px 6px", marginTop:"7px"}}  onClick={()=>{navigate("/resultados/", { replace: true })}}/>
-            <WhiteUserIcon style={{padding:"6px 6px", marginTop:"7px"}} onClick={()=>{console.log("ogin");navigate("/login", { replace: true })}}/>
+            <LoginButton>
+                <WhiteUserIcon style={{padding:"6px 6px", marginTop:"7px"}}/>
+            </LoginButton>
             <ShoppingCart style={{padding:"6px 0px", marginTop:"7px"}}><WhiteShoppingBagIcon/></ShoppingCart> 
         </div>
         {isOpen? <div className="menu-header-responsive">

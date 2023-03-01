@@ -91,13 +91,12 @@ export function useUser() {
   useEffect(() => {
     if (localUser) {
       const parseUser = JSON.parse(localUser);
-      console.log(parseUser, "hook");
+
       setUser(parseUser);
     }
   }, [localUser]);
   return user;
 }
-
 
 // ? Hook para ver los productos visitados
 const useVisitedProducts = () => {
@@ -105,18 +104,18 @@ const useVisitedProducts = () => {
 
   useEffect(() => {
     // Obtenemos los productos visitados del localStorage
-    const visitedProductsFromLocalStorage = JSON.parse(localStorage.getItem('visitedProducts') || '[]');
+    const visitedProductsFromLocalStorage = JSON.parse(
+      localStorage.getItem("visitedProducts") || "[]"
+    );
     setVisitedProducts(visitedProductsFromLocalStorage);
   }, []);
 
   useEffect(() => {
     // Actualizamos el localStorage cuando cambia la lista de productos visitados
-    localStorage.setItem('visitedProducts', JSON.stringify(visitedProducts));
+    localStorage.setItem("visitedProducts", JSON.stringify(visitedProducts));
   }, [visitedProducts]);
 
   return visitedProducts;
 };
 
-export { useVisitedProducts } ;
-
- 
+export { useVisitedProducts };
