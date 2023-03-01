@@ -20,12 +20,11 @@ const SearchProducts = () => {
   }
  
 
-  console.log(result);
 
   return (
     <>
       <div style={{ maxWidth: "1250px", margin: "30px auto" }}>
-        <h1 className="section-title">Search Products</h1>
+        <h1 className="section-title">Buscador de prendas</h1>
         <div className="product-card-container">
           {params.query?
           result

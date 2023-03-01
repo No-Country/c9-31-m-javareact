@@ -38,7 +38,7 @@ export function SellForm() {
   // ? La función verifica si el usuario está conectado efectivamente a firebase y guarda toda la información necesaria
   // ? Decidí no usar localstorage (a pesar de su sencillez) porque puede ser facilmente explotado al subir productos personas que manipulen el localstorage y no tengan cuenta real
   // ! De todas formas hay que mejorar la seguridad de esta parte cuando configuremos el .env
-  const [usernameMail, setUsernameMail] = useState('');
+  const [usernameMail, setUsernameMail] = useState("");
 
   useEffect(() => {
     const auth = getAuth();
@@ -89,22 +89,17 @@ export function SellForm() {
         fotos: imgs,
       };
       addProduct(productToSell);
-      Swal.fire(
-        'Listo!',
-        'Producto subido satisfactoriamente',
-        'success'
-      )
+      Swal.fire("Listo!", "Producto subido satisfactoriamente", "success");
       setImgs([]);
       navigate("/", { replace: true });
     } else {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Tienes que subir mínimo una foto!',
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Tienes que subir mínimo una foto!",
+      });
     }
   }
-
 
   function handleChange(e) {
     const value = e.target.value;
@@ -137,10 +132,9 @@ export function SellForm() {
             )}
           </div>
           <p className="sell-form_photodescription">
-            Podés subir máximo 6 fotos. Asegurate de que tengan buena luz y
-            fondo claro. Tu prenda debe estar en buen estado, limpia y prolija.
-            Solo puede tener 1 o 2 defectos y debes incluir fotos de estos. Si
-            está muy sucia, manchada o desgastada tu publicación será rechazada.
+            Antes de subir una foto, asegúrate que tengas buena luz y fondo
+            claro. La prenda debe estar en buen estado para que la publicación
+            no sea rechazada. Podés subir, máximo, 6 fotos.
             <a
               style={{ color: "black", margin: "0 5px" }}
               href="https://es.wix.com/blog/2015/06/11-trucos-para-fotografia-de-productos/?utm_source=google&utm_medium=cpc&utm_campaign=12446219914^117820822545&experiment_id=^^501731587802^^_DSA&gclid=Cj0KCQiAxbefBhDfARIsAL4XLRrLPl8hXDkVjAA7SuS6t3SIS4ONetB38P0B5MDop-eJWTLwA3Bb1A0aAiGnEALw_wcB"
@@ -205,7 +199,7 @@ export function SellForm() {
               <SelectBasic
                 className="sell-form_input__select"
                 name="prenda"
-                value={["Remera", "Pantalon", "Campera", "Zapatos", "Otro"]}
+                value={["Campera", "Pantalón", "Remera", "Zapatos", "Otro"]}
               />
             </label>
             <label className="sell-form_label">
@@ -213,7 +207,7 @@ export function SellForm() {
               <SelectBasic
                 className="sell-form_input__select"
                 name="marca"
-                value={["Adidas", "Nike", "Zara", "Topper", "Otra"]}
+                value={["Adidas", "Nike", "Topper", "Zara", "Otra"]}
               />
             </label>
           </div>
@@ -282,13 +276,13 @@ export function SellForm() {
                 className="sell-form_input__select"
                 name="color"
                 value={[
-                  "blanco",
-                  "negro",
-                  "gris",
-                  "rojo",
-                  "verde",
-                  "azul",
-                  "amarillo",
+                  "Amarillo",
+                  "Azul",
+                  "Blanco",
+                  "Gris",
+                  "Negro",
+                  "Rojo",
+                  "Verde",
                   "Otro",
                 ]}
               />
@@ -298,7 +292,7 @@ export function SellForm() {
               <SelectBasic
                 className="sell-form_input__select"
                 name="estilo"
-                value={["deportivo", "casual", "formal", "Otra"]}
+                value={["Deportivo", "Casual", "Formal", "Otro"]}
               />
             </label>
             <label className="sell-form_label">
@@ -308,11 +302,11 @@ export function SellForm() {
                 name="material"
                 value={[
                   "Algodón",
-                  "Poliéster",
-                  "Lino",
                   "Lana",
-                  "Nylon",
+                  "Lino",
                   "Lycra",
+                  "Nylon",
+                  "Poliéster",
                   "Otra",
                 ]}
               />
@@ -423,7 +417,7 @@ export function SellForm() {
               className="sell-form_input__select"
               type="text"
               name="descripcion"
-              placeholder="Podes agregar lo que quieras, el talle real de la etiqueta, formas de uso de la prenda, etc. Recuerda describir si tu prenda tiene algún desperfecto."
+              placeholder="Podés agregar formas de uso de las prendas, medidas exactas, entre otras. Recordá, cuanto más describas, ¡mejor para tu venta!"
               required
             />
             <p style={{ fontSize: "14px", margin: "0" }}>
@@ -448,6 +442,8 @@ export function SellForm() {
                   placeholder="$  0"
                   maxlength="8"
                   size="10"
+                  min="1"
+                  max="500000"
                   required
                 />
               </label>

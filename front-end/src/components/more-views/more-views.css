@@ -141,6 +141,26 @@
       justify-content: space-between;
       align-items: center;
       margin-left: -2.5rem;
+      margin-right: 3.15rem;
+      width: 100%;
+    }
+    .left-button-product{
+      margin-left: 3rem;
+    }
+    .right-button-product{
+      margin-right: 0.8rem;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .product-carousel-item {
+      flex: 0 0 100%;
+    }
+    .product-carrousel-position{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: -2.5rem;
       margin-right: 2.3rem;
       width: 100%;
     }
