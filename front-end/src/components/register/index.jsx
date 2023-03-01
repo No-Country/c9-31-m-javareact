@@ -6,6 +6,8 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import "./register.css";
+import { Link } from "react-router-dom";
+import LoginCarousel from "../login-carousel";
 
 const RegisterForn = ({ inputs, title }) => {
   //const [file, setFile] = useState("");
@@ -109,9 +111,8 @@ const RegisterForn = ({ inputs, title }) => {
   return (
     <>
       <div className="register-wrapper">
-        <div className="register-photo">
-          <img src="" alt="" />
-          <p>Aquí va la foto</p>
+      <div className="login-page_carousel">
+        <LoginCarousel />
         </div>
         <div className="register-container">
           <div className="inputs-container">
@@ -173,7 +174,14 @@ const RegisterForn = ({ inputs, title }) => {
               </div>
 
               <p className="login-register">¿Ya tenés cuenta?</p>
-              <p className="login-register">Inicia de sesión</p>
+              <Link to="/login">
+                <p
+                  className="login-register"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Inicia sesión
+                </p>
+              </Link>
             </form>
           </div>
         </div>

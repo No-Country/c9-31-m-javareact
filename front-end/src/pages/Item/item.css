@@ -37,7 +37,7 @@
 .product-main-name {
   grid-column: 2 / span 3;
   grid-row: 1 / span 1;
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -52,7 +52,7 @@
 .product-main-description {
   grid-column: 2 / span 3;
   grid-row: 2 / span 1;
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -70,7 +70,7 @@
 .product-main-price {
   grid-column: 2 / span 3;
   grid-row: 3 / span 1;
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
@@ -110,7 +110,7 @@
 }
 
 .product-main-marca {
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -121,7 +121,7 @@
 }
 
 .product-main-comprar {
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -132,7 +132,7 @@
 }
 
 .product-main-agregar {
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -145,7 +145,7 @@
 }
 
 .product-main-description-title {
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -158,7 +158,7 @@
 }
 
 .product-main-username {
-  font-family: "Graphik";
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;

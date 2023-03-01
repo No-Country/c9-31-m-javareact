@@ -13,7 +13,7 @@ export const userInputs = [
     label: "Email",
     type: "mail",
     placeholder: "Email:",
-    pattern: "^[a-zA-Z0-9]([a-zA-Z0-9._-]{0,48}[a-zA-Z0-9])?@[a-zA-Z0-9]([a-zA-Z0-9-]{0,48}[a-zA-Z0-9])?\\.[a-zA-Z]{2,}$",
+    pattern: "^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-][a-zA-Z0-9]+)*\.[a-zA-Z]{2,6}$",
     message: "Ingrese un correo electrónico válido",
   },
 
