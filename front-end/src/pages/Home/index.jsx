@@ -7,8 +7,8 @@ export function Home(){
     useUser()
     return <>
         <Slider />
-        <MoreViews title="Mas vistos"/>
+        <MoreViews title="Más vistos"/>
         <MoreViews title="Nuevas Publicaciones"/>
-        <MoreViews title="Vistos Recien"/>
+        <MoreViews title="Vistos Recién"/>
     </>
 }

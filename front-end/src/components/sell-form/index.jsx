@@ -9,6 +9,7 @@ import { InputButton, SelectBasic } from "../../ui/inputs";
 import { ConfirmButton } from "../../ui/buttons";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Swal from "sweetalert2";
 
 export function SellForm() {
   const [showDropzpne, setShowDropzpne] = useState(false);
@@ -66,6 +67,7 @@ export function SellForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
     if (imgs.length > 0) {
       imgcontroler = true;
     }
@@ -87,12 +89,19 @@ export function SellForm() {
         fotos: imgs,
       };
       addProduct(productToSell);
-
-      window.alert("prenda publicada");
+      Swal.fire(
+        'Listo!',
+        'Producto subido satisfactoriamente',
+        'success'
+      )
       setImgs([]);
       navigate("/", { replace: true });
     } else {
-      alert("Necesitas subir al menos una foto");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Tienes que subir mínimo una foto!',
+      })
     }
   }
 

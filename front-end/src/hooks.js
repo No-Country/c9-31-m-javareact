@@ -1,5 +1,5 @@
 import { atom, useRecoilState } from "recoil";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   addDoc,
   serverTimestamp,
@@ -164,3 +164,26 @@ export function useUser() {
   }, [localUser]);
   return user;
 }
+
+
+// ? Hook para ver los productos visitados
+const useVisitedProducts = () => {
+  const [visitedProducts, setVisitedProducts] = useState([]);
+
+  useEffect(() => {
+    // Obtenemos los productos visitados del localStorage
+    const visitedProductsFromLocalStorage = JSON.parse(localStorage.getItem('visitedProducts') || '[]');
+    setVisitedProducts(visitedProductsFromLocalStorage);
+  }, []);
+
+  useEffect(() => {
+    // Actualizamos el localStorage cuando cambia la lista de productos visitados
+    localStorage.setItem('visitedProducts', JSON.stringify(visitedProducts));
+  }, [visitedProducts]);
+
+  return visitedProducts;
+};
+
+export { useVisitedProducts } ;
+
+ 
