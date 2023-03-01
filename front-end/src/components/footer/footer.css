@@ -17,10 +17,7 @@
 }
 
 .footer-tags_conteiner{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 70%;
+display: none;
 }
 
 .footer-redes_conteiner{
@@ -65,10 +62,19 @@
   }
   
   .footer-redes_conteiner {
-    width: 30%;
+    width: 50%;
   }
   
   .footer-license {
     text-align: center;
   }
+}
+
+@media (min-width: 600px){
+  .footer-tags_conteiner{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+}
 }
