@@ -89,7 +89,7 @@ export function SellForm() {
         fotos: imgs,
       };
       addProduct(productToSell);
-      Swal.fire("Listo!", "Producto subido satisfactoriamente", "success");
+      Swal.fire("Listo!", "¡Felicitaciones! ya publicaste tu prenda.", "success");
       setImgs([]);
       navigate("/", { replace: true });
     } else {
@@ -114,7 +114,7 @@ export function SellForm() {
           <h2 className="sell-form_title">Vendé tu prenda</h2>
           <div onClick={handleClick} className="sell-form_photo">
             {showDropzpne ? (
-              <div className="sell-form_photo">
+              <div className="sell-form_photo grid-mobile">
                 <Previews />
                 <Previews />
                 <Previews />
@@ -135,18 +135,12 @@ export function SellForm() {
             Antes de subir una foto, asegúrate que tengas buena luz y fondo
             claro. La prenda debe estar en buen estado para que la publicación
             no sea rechazada. Podés subir, máximo, 6 fotos.
-            <a
-              style={{ color: "black", margin: "0 5px" }}
-              href="https://es.wix.com/blog/2015/06/11-trucos-para-fotografia-de-productos/?utm_source=google&utm_medium=cpc&utm_campaign=12446219914^117820822545&experiment_id=^^501731587802^^_DSA&gclid=Cj0KCQiAxbefBhDfARIsAL4XLRrLPl8hXDkVjAA7SuS6t3SIS4ONetB38P0B5MDop-eJWTLwA3Bb1A0aAiGnEALw_wcB"
-            >
-              Más Consejos
-            </a>{" "}
           </p>
         </div>
         <div className="sell-form_kind__container">
           <div className="sell-form_kind">
             <label className="sell-form_label">
-              Genero:
+              Género:
               <div className="sell-form_kind__butons-conteiner">
                 <InputButton
                   style={
@@ -194,7 +188,7 @@ export function SellForm() {
                 />
               </div>
             </label>
-            <label className="sell-form_label">
+            <label className="sell-form_label desktop">
               Prenda:
               <SelectBasic
                 className="sell-form_input__select"
@@ -202,17 +196,17 @@ export function SellForm() {
                 value={["Campera", "Pantalón", "Remera", "Zapatos", "Otro"]}
               />
             </label>
-            <label className="sell-form_label">
+            <label className="sell-form_label desktop">
               Marca:
               <SelectBasic
                 className="sell-form_input__select"
                 name="marca"
-                value={["Adidas", "Nike", "Topper", "Zara", "Otra"]}
+                value={["Adidas", "Nike", "Topper", "Zara","Otra"]}
               />
             </label>
           </div>
-          <div className="sell-form_kind">
-            <label className="sell-form_label">
+          <div className="sell-form_kind desktop">
+            <label className="sell-form_label desktop">
               Estado:
               <div className="sell-form_kind__butons-conteiner grid">
                 <InputButton
@@ -269,8 +263,8 @@ export function SellForm() {
               </div>
             </label>
           </div>
-          <div className="sell-form_kind">
-            <label className="sell-form_label">
+          <div className="sell-form_kind desktop">
+            <label className="sell-form_label desktop">
               Color:
               <SelectBasic
                 className="sell-form_input__select"
@@ -287,7 +281,7 @@ export function SellForm() {
                 ]}
               />
             </label>
-            <label className="sell-form_label">
+            <label className="sell-form_label desktop">
               Estilo:
               <SelectBasic
                 className="sell-form_input__select"
@@ -295,7 +289,7 @@ export function SellForm() {
                 value={["Deportivo", "Casual", "Formal", "Otro"]}
               />
             </label>
-            <label className="sell-form_label">
+            <label className="sell-form_label desktop">
               Material:
               <SelectBasic
                 className="sell-form_input__select"
@@ -312,7 +306,7 @@ export function SellForm() {
               />
             </label>
           </div>
-          <div className="sell-form_kind">
+          <div className="sell-form_kind desktop">
             <label className="sell-form_label">
               Talle:
               <div className="sell-form_kind__butons-conteiner grid">
@@ -406,7 +400,8 @@ export function SellForm() {
               className="sell-form_input__select"
               type="text"
               name="titulo"
-              placeholder="Agregá la prenda, la marca, el color y el estilo para mejorar la búsqueda"
+              placeholder="Agregá un titulo para tu publicación"
+              maxLength={20}
               required
             />
           </label>
@@ -427,7 +422,7 @@ export function SellForm() {
         </div>
         <div
           className="sell-form_kind largo-completo"
-          style={{ height: "200px" }}
+          style={{ height: "250px" }}
         >
           <label className="sell-form_label">
             Precio:
@@ -440,7 +435,7 @@ export function SellForm() {
                   className="sell-form_input__select precio"
                   type="number"
                   placeholder="$  0"
-                  maxlength="8"
+                  maxLength="8"
                   size="10"
                   min="1"
                   max="500000"

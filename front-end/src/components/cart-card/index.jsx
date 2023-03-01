@@ -3,7 +3,7 @@ import "./cartCard.css"
 
 export function CartCard(props){
     return <div className="cart-card_container">
-        <img className="cart-card_foto" src={props.foto} />
+        <img className="cart-card_foto" src={props.foto}  alt="" />
         <div className="cart-card-info_container">
             <h2>{props.titulo}</h2>
             <p style={{textAlign:"left"}}>{props.description.slice(0,20)}</p>

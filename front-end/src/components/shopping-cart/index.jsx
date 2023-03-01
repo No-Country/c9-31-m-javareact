@@ -24,8 +24,6 @@ function MyVerticallyCenteredModal(props) {
       localStorage.setItem("carrito",JSON.stringify(localCart) )
     }
     
-    console.log(localCart);
-    
 return (
     <Modal
       {...props}

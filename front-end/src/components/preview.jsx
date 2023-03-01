@@ -78,8 +78,10 @@ console.log(savePicture);
         <input {...getInputProps()} />
         {pictureURL?<div>{thumbs}</div>
         :
-          <div>
-            <LoadPhoto/>
+          <div> 
+            <div className='sell-form_photo_icon'>
+              <LoadPhoto/>
+            </div>
             <p className="sell-form_photo_instructions">Agregá o arrastrá tu foto aquí</p>
           </div>}
       </div>

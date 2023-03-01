@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SellForm } from "../../components/sell-form";
 import { Navigate } from "react-router-dom";
-import { userState, useUser } from "../../hooks";
+import { userState } from "../../hooks";
 import { useRecoilValue } from "recoil";
 
 const Sell = () => {

@@ -25,25 +25,20 @@ export function ConfirmButton(props){
 export function LoginButton(props){
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
     const storedUser = localStorage.getItem("user");
     function logout() {
-      localStorage.clear();
-      isLogged = false;
-      window.location.reload();
+        localStorage.clear();
+        isLogged = false;
+        window.location.reload();
     }
     let isLogged = false;
-    let email;
     if (storedUser) {
-      const parsedUser = JSON.parse(storedUser);
-      email = parsedUser.email;
-      isLogged = true;
+        isLogged = true;
     }
 
-    function handleClick(event) {
+    function handleClick() {
         if (isLogged) {
             setIsOpen(!isOpen);
-            //setPosition({ x: event.clientX, y: event.clientY });
         } else navigate("/login", { replace: true });
     }
 

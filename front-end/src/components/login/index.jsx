@@ -1,6 +1,4 @@
 import React from "react";
-import { FacebookIcon, GoogleIcon } from "../../img";
-import { RedesButton } from "../../ui/buttons";
 import { LoginForm } from "../login-form/index";
 import { Link } from "react-router-dom";
 import "./login.css"

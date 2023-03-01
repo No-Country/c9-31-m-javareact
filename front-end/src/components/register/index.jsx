@@ -9,8 +9,7 @@ import "./register.css";
 import { Link } from "react-router-dom";
 import LoginCarousel from "../login-carousel";
 
-const RegisterForn = ({ inputs, title }) => {
-  //const [file, setFile] = useState("");
+const RegisterForn = () => {
   const [data, setData] = useState({});
   const [per, setPerc] = useState(null);
   const navigate = useNavigate();
@@ -36,55 +35,8 @@ const RegisterForn = ({ inputs, title }) => {
     setData({ ...data, acceptTerms: e.target.checked });
   };
 
-  // ?? a esta funcionalidad la comente porque no esta en el diseño. Prefiero que nos concentremos en respetar el diseño y...
-  // ... darle mas importancia al flujo de vender, publicar productos.
-
-  // useEffect(() => {
-  //   const uploadFile = () => {
-  //     const name = new Date().getTime() + file.name;
-
-  //     console.log(name);
-  //     const storageRef = ref(storage, file.name);
-  //     const uploadTask = uploadBytesResumable(storageRef, file);
-
-  //     uploadTask.on(
-  //       "state_changed",
-  //       (snapshot) => {
-  //         const progress =
-  //           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-  //         console.log("Upload is " + progress + "% done");
-  //         setPerc(progress);
-  //         switch (snapshot.state) {
-  //           case "paused":
-  //             console.log("Upload is paused");
-  //             break;
-  //           case "running":
-  //             console.log("Upload is running");
-  //             break;
-  //           default:
-  //             break;
-  //         }
-  //       },
-  //       (error) => {
-  //         console.log(error);
-  //       },
-  //       () => {
-  //         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-  //           setData((prev) => ({ ...prev, img: downloadURL }));
-  //         });
-  //       }
-  //     );
-  //   };
-  //   file && uploadFile();
-  // }, [file]);
-
   const handleAdd = async (e) => {
     e.preventDefault();
-
-    // if (data.password !== data.confirmPassword) {
-    //   alert("Las contraseñas no coinciden.");
-    //   return;
-    // }
 
     if (!data.acceptTerms) {
       alert("Debe aceptar los términos y condiciones.");
@@ -136,19 +88,6 @@ const RegisterForn = ({ inputs, title }) => {
                   </span>
                 </div>
               ))}
-              {/* <div className="register-inputs">
-                <input
-                  id="passwordConfirmation"
-                  type="password"
-                  placeholder="Confirmar contraseña:"
-                  pattern={`^${data.password}$`}
-                  value={data.passwordConfirmation}
-                  onChange={handleInput}
-                />
-                <span className="error-message" style={{ display: "none" }}>
-                  Las contraseñas no coinciden.
-                </span>
-              </div> */}
 
               <div className="terms-container">
                 <input

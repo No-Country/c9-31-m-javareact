@@ -1,6 +1,5 @@
 import React from 'react'
 import RegisterForn from '../../components/register'
-import LoginCarousel from '../../components/login-carousel'
 import { useRecoilValue } from 'recoil';
 import { userState } from '../../hooks';
 import { Navigate } from "react-router-dom";

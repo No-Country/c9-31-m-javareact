@@ -42,7 +42,7 @@ const MoreViews = (props) => {
   const visitedProducts = useVisitedProducts(); // Agregamos la constante visitedProducts
 
   // ? Caso 1. Prop "Nuevas Publicaciones" - Primero valida el prop y luego mediante un sort de data situamos los productos más nuevos
-  if (title == "Nuevas Publicaciones") {
+  if (title === "Nuevas Publicaciones") {
     finalData = React.useMemo(() => {
       return [...data].sort((a, b) => b.timeStamp - a.timeStamp);
     }, [data]);

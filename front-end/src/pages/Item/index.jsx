@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { getProductById, productState } from "../../hooks";
-import { useCart } from "../../hooks";
 import "./item.css";
 
 const ProductDetail = () => {

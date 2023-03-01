@@ -9,7 +9,6 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import { useRecoilValue } from "recoil";
 
 export const picturesURLState = atom({
   key: "picturesState",

@@ -7,13 +7,13 @@ export function ProductCard(props) {
 return (
     <Card onClick={props.onClick} className='card-container'>
         <div className="seller-info">
-        <img className='seller-info_pic' src={props.sellerPic || img} />
+        <img className='seller-info_pic' src={props.sellerPic || img} alt=""/>
         <h2 className="seller-info_name">{props.sellerName || "vendedor"}</h2>
         </div>
         <div style={{margin: "0 15px"}}>
             <Card.Img className='card-img' variant="top" src={props.productFoto || img} />
             <Card.Body style={{height:"170px"}}>
-            <Card.Title className='card-title'>{props.productName.slice(0,18)+"..."  || "Titulo del producto" }</Card.Title>
+            <Card.Title className='card-title'>{props.productName || "Titulo del producto" }</Card.Title>
             <div>
                 <Card.Text className='card-description'>{props.descripcion.slice(0,60)+"..." || "descripción breve del producto"} </Card.Text>
             </div>
