@@ -36,8 +36,9 @@ useUser()
                 <li className="menu-header-responsive_option" onClick={()=>{navigate("/resultados/", { replace: true });setOpen(!isOpen)}}>Ofertas</li>
             </ul>
         </div>:"" }
-       
-        <SearchBar />
+        <div className="responsive-wrap_search">
+            <SearchBar />
+        </div>
         <div className="header-buttons">
             <Link to="/sell">
                 <button className="login-button">VENDER</button>

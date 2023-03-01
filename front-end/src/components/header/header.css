@@ -81,9 +81,16 @@ img, svg {
     z-index: 8;
 }
 
+.responsive-wrap_search{
+display: none;
+}
+
 @media (min-width: 600px) {
     .responsive-wrap{
         display: none;
+    }
+    .responsive-wrap_search{
+        display: inherit;
     }
 }
 

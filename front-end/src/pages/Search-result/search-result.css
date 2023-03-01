@@ -8,7 +8,12 @@
     width: 25%;
     margin-bottom: 20px;
   }
-  
+
+    @media (min-width: 600px) {
+      .responsive-Wrap{
+        display: none;
+      }
+    }
   @media screen and (max-width: 600px) {
     .product-card-wrapper {
       width: 100%;

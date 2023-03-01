@@ -1,5 +1,5 @@
-import { query } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import { SearchBar } from "../../components/search-bar";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ProductCard } from "../../components/product-card";
 import { useProducts } from "../../hooks";
@@ -23,6 +23,9 @@ const SearchProducts = () => {
 
   return (
     <>
+      <div className='responsive-Wrap'>
+            <SearchBar/>
+        </div>
       <div style={{ maxWidth: "1250px", margin: "30px auto" }}>
         <h1 className="section-title">Productos encontrados</h1>
         <div className="product-card-container">
