@@ -31,7 +31,7 @@ useUser()
             <ul className="menu-header-responsive_ul">
                 <li className="menu-header-responsive_option" onClick={()=>{navigate("/resultados/femenino", { replace: true });setOpen(!isOpen)}}>Mujer</li>
                 <li className="menu-header-responsive_option" onClick={()=>{navigate("/resultados/masculino", { replace: true });setOpen(!isOpen)}}>Hombre</li>
-                <li className="menu-header-responsive_option" onClick={()=>{navigate("//resultados/niños", { replace: true });setOpen(!isOpen)}}>Niños</li>
+                <li className="menu-header-responsive_option" onClick={()=>{navigate("/resultados/niños", { replace: true });setOpen(!isOpen)}}>Niños</li>
                 <li className="menu-header-responsive_option" onClick={console.log("sobre nosotros")}>Sobre Nosotros</li>
                 <li className="menu-header-responsive_option" onClick={()=>{navigate("/resultados/", { replace: true });setOpen(!isOpen)}}>Ofertas</li>
             </ul>
