@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { ItemCarousel } from "../../components/item-carousel";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { getProductById, productState } from "../../hooks";
 import { useCart } from "../../hooks";
 import "./item.css";
@@ -15,9 +14,11 @@ const ProductDetail = () => {
   const [precioDeVenta, setPrecioDeVenta] = useState("");
   const [emailvendedor, setEmailvendedor] = useState("");
   const { id } = useParams();
+  const portada = fotos? fotos[0]:""
   getProductById(id);
   const product = useRecoilValue(productState);
-
+  const cartLocal =JSON.parse(localStorage.getItem("carrito")) 
+  
   useEffect(() => {
     setFotos(product.fotos);
     setMarca(product.marca);
@@ -28,9 +29,29 @@ const ProductDetail = () => {
     setEmailvendedor(product.usernameMail);
   }, [product]);
 
-  const { addItem } = useCart();
+
   const handleAddToCart = () => {
-    addItem({ id, titulo, precioDeVenta });
+    if(cartLocal){
+      const carrito = cartLocal
+      carrito.push({
+        id,
+        portada,
+        titulo,
+        precio:product.precioDeVenta,
+        description
+      })
+      localStorage.setItem("carrito",JSON.stringify(carrito) )
+    } else{
+      localStorage.setItem("carrito",JSON.stringify([{
+        id,
+        portada,
+        titulo,
+        precio:product.precioDeVenta,
+        description
+      }]))
+    }
+
+
   };
 
   return (

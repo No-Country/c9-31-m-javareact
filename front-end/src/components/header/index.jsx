@@ -6,6 +6,7 @@ import "./header.css"
 import { useUser } from "../../hooks";
 import Hamburger from 'hamburger-react'
 import { Link, useNavigate } from "react-router-dom";
+import { ShoppingCart } from "../shopping-cart";
 
 export default function Header() {
 const navigate = useNavigate()
@@ -19,9 +20,9 @@ useUser()
         </div>
         <Logo />
         <div className="responsive-wrap">
-            <WhiteSearchIcon onClick={()=>{navigate("/resultados/", { replace: true })}}/>
-            <WhiteUserIcon onClick={()=>{console.log("ogin");navigate("/login", { replace: true })}}/>
-            <WhiteShoppingBagIcon onClick={()=>{console.log("carrito");}}/>
+            <WhiteSearchIcon style={{padding:"6px 6px", marginTop:"7px"}}  onClick={()=>{navigate("/resultados/", { replace: true })}}/>
+            <WhiteUserIcon style={{padding:"6px 6px", marginTop:"7px"}} onClick={()=>{console.log("ogin");navigate("/login", { replace: true })}}/>
+            <ShoppingCart style={{padding:"6px 0px", marginTop:"7px"}}><WhiteShoppingBagIcon/></ShoppingCart> 
         </div>
         {isOpen? <div className="menu-header-responsive">
             <ul className="menu-header-responsive_ul">
