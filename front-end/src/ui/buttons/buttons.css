@@ -85,6 +85,9 @@
             right: 60px;
             top: 230px;
         }
+        .responsive{
+          display: none;
+        }
     }
   ul {
     list-style: none;

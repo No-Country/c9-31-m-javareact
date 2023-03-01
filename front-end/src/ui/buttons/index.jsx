@@ -52,7 +52,8 @@ export function LoginButton(props){
      <button onClick={handleClick} style={{border:"none",background:"none", margin:"none"}}>{props.children}</button>
         {isOpen && (
             <div className="submenu">
-                <ul className="options-submenu-container">         
+                <ul className="options-submenu-container"> 
+                <li className="options-submenu responsive" onClick={() => {navigate("/sell", { replace: true });;setIsOpen(!isOpen)}}>Vender</li>        
                 <li
                     className="options-submenu"
                     onClick={() => {
