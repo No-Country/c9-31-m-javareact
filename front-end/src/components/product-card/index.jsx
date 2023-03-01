@@ -13,9 +13,9 @@ return (
         <div style={{margin: "0 15px"}}>
             <Card.Img className='card-img' variant="top" src={props.productFoto || img} />
             <Card.Body style={{height:"170px"}}>
-            <Card.Title className='card-title'>{props.productName || "Titulo del producto" }</Card.Title>
+            <Card.Title className='card-title'>{props.productName.slice(0,18)+"..."  || "Titulo del producto" }</Card.Title>
             <div>
-                <Card.Text className='card-description'>{props.descripcion.slice(0,60)+"..." || "desctipcion breve del producto"} </Card.Text>
+                <Card.Text className='card-description'>{props.descripcion.slice(0,60)+"..." || "descripción breve del producto"} </Card.Text>
             </div>
             <h3 className='card-title'>${(props.precio.slice(0,6)) ||"Precio"}</h3>
             </Card.Body>   

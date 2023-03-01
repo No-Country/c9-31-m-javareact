@@ -71,15 +71,7 @@ const MoreViews = (props) => {
         <h1 className="section-title">{props.title}</h1>
         <div className="product-carousel-wrapper">
           <div className="product-carousel-container">
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                marginLeft: "-1rem",
-                width: "100%",
-              }}
-            >
+            <div className="product-carrousel-position">
               <button
                 onClick={handlePrevSlide}
                 disabled={currentSlide === 0}
