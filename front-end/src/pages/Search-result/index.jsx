@@ -19,7 +19,7 @@ const SearchProducts = () => {
   p.prenda.toLowerCase().includes(params.query.toLowerCase())); 
   }
  
-
+console.log(data, "dataaaa");
 
   return (
     <>

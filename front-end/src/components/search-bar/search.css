@@ -18,6 +18,7 @@
     width: 630px;
     }
     .search-button{
+        display: inherit;
         height: 50px;
         width: 50px;
         border: none;
