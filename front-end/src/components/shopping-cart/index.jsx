@@ -8,23 +8,25 @@ import "./shoppingCart.css";
 
 
 function MyVerticallyCenteredModal(props) {
-    const navigate = useNavigate();
-    const localCart = JSON.parse(localStorage.getItem("carrito")) 
-    const [deleteItem, setDeleteItem] = useState("")
+  const navigate = useNavigate();
+  const localCart = JSON.parse(localStorage.getItem("carrito")) 
+  const [deleteItem, setDeleteItem] = useState("")
+  let total = 0;
 
-    function deleteItemById(array, id) {
-      let index = array.findIndex(item => item.id === id);
-      if (index !== -1) {
-        array.splice(index, 1);
-      }
+  function deleteItemById(array, id) {
+    let index = array.findIndex(item => item.id === id);
+    if (index !== -1) {
+      array.splice(index, 1);
     }
-    
-    if(localCart){
-      deleteItemById(localCart,deleteItem );
-      localStorage.setItem("carrito",JSON.stringify(localCart) )
-    }
-    
-return (
+  }
+  
+  if(localCart){
+    deleteItemById(localCart,deleteItem );
+    localStorage.setItem("carrito",JSON.stringify(localCart) );
+    total = localCart.reduce((acc, curr) => acc + parseFloat(curr.precio), 0);
+  }
+  
+  return (
     <Modal
       {...props}
       size="lg"
@@ -42,6 +44,7 @@ return (
               <button onClick={()=>{console.log(p.id);setDeleteItem(p.id)}} className="delete_button"><DeleteIcon/></button>
             </div>
         }): <p> sin productos</p>}
+        <p>Total: ${total}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button
@@ -54,6 +57,7 @@ return (
     </Modal>
   );
 }
+
 
 export function ShoppingCart(props) {
   const [modalShow, setModalShow] = React.useState(false);
