@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 9px 14px;
+    padding: 9px 25px;
     gap: 16px;
     width: 92.7px;
     height: 33px;
@@ -83,7 +83,7 @@
     @media(min-width: 600px) {
         .submenu {
             right: 60px;
-            top: 230px;
+            top: 200px;
         }
         .responsive{
           display: none;

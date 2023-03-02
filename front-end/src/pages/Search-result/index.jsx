@@ -37,7 +37,7 @@ const SearchProducts = () => {
                   onClick={() => {
                     navigate("/item/" + p.id, { replace: true });
                   }}
-                  sellerName={p.email}
+                  sellerName={p.usernameMail}
                   productFoto={p.fotos[0]}
                   productName={p.titulo}
                   descripcion={p.descripcion}

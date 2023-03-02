@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { getProductById, productState } from "../../hooks";
 import "./item.css";
+import Swal from "sweetalert2";
 
 const ProductDetail = () => {
   const [fotos, setFotos] = useState([]);
@@ -40,7 +41,11 @@ const ProductDetail = () => {
         description
       })
       localStorage.setItem("carrito",JSON.stringify(carrito) )
-      window.alert("producto agregado al carrito")
+      Swal.fire(
+        'Listo!',
+        'Producto agregado al carrito',
+        'success'
+      )
     } else{
       localStorage.setItem("carrito",JSON.stringify([{
         id,
@@ -49,7 +54,11 @@ const ProductDetail = () => {
         precio:product.precioDeVenta,
         description
       }]))
-      window.alert("producto agregado al carrito")
+      Swal.fire(
+        'Listo!',
+        'Producto agregado al carrito',
+        'success'
+      )
     }
 
 
