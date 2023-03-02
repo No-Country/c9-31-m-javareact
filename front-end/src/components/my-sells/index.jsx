@@ -34,29 +34,30 @@ function MySells() {
 
 
   console.log(data[0])
-  // Obtener las prendas publicadas del usuario actual
+  // ? Obtener las prendas publicadas del usuario actual
   const prendasPublicadas = data.filter(p => p.usernameMail === usernameMail);
 
   const opciones = [
     {
       id: 1,
-      nombre: 'Prendas publicadas',
+      nombre: 'Publicadas',
       contenido: (
-        <div className="product-card-container">
-          <p>Tus prendas publicadas son</p>
-          {prendasPublicadas.map((p) => (
-            <div className="product-card-wrapper" key={p.id}>
-              <ProductCard
-                onClick={() => {}}
-                sellerId={usernameMail}
-                productFoto={p.fotos[0]}
-                productName={p.titulo}
-                descripcion={p.descripcion}
-                precio={p.precioDeVenta}
-              />
-            </div>
-          ))}
-        </div>
+<div className="product-card-container">
+  <p style={{display:"block"}}>Tus prendas publicadas son:</p>
+  {prendasPublicadas.map((p) => (
+    <div className="product-card-wrapper" key={p.id}>
+      <ProductCard
+        onClick={() => {}}
+        sellerName={p.usernameMail}
+        sellerId={usernameMail}
+        productFoto={p.fotos[0]}
+        productName={p.titulo}
+        descripcion={p.descripcion}
+        precio={p.precioDeVenta}
+      />
+    </div>
+  ))}
+</div>
       )
     },
     {
@@ -68,11 +69,6 @@ function MySells() {
       id: 3,
       nombre: 'En transito',
       contenido: 'Contenido de la opción 3'
-    },
-    {
-      id: 4,
-      nombre: 'Ganancias',
-      contenido: 'Muchas'
     }
   ];
 
@@ -81,9 +77,11 @@ function MySells() {
   };
 
   return (user.email ?
+    <>
+    <h3 className='my-sells-title'>Mis ventas</h3>
     <div className='div-mysells'>
-      <h3 className='my-sells'>Mis ventas</h3>
-      <div className="rectangulo"></div>
+      
+      
       <div className="opciones-container">
         {opciones.map((opcion) => (
           <div key={opcion.id} onClick={() => seleccionarOpcion(opcion)} className={`opcion ${opcionSeleccionada === opcion ? 'seleccionada' : ''}`}>
@@ -97,6 +95,7 @@ function MySells() {
         </div>
       )}
     </div>
+    </>
     :
     <Navigate to="/login"/>
   );
