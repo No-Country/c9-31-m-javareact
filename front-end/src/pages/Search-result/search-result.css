@@ -13,6 +13,10 @@
       .responsive-Wrap{
         display: none;
       }
+      .product-card-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   @media screen and (max-width: 600px) {
     .product-card-wrapper {
@@ -22,3 +26,9 @@
     }
   }
   
+  @media (min-width:  900px){
+    .product-card-container{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
